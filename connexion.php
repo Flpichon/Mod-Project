@@ -16,7 +16,7 @@ if(isset($_GET["action"]) && $_GET["action"] == "connexion")
   <section class="container">
     <div class="row">
         <div class="col-sm-6">
-            <h1>Section Administrative<small>Connexion(test)</small></h1>
+            <h1>Section Administrative<small>Connexion</small></h1>
 
             <form action="?action=connexion" method="POST">
                 <article class="form-group">
