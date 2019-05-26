@@ -1,7 +1,6 @@
 <?php
 
 function Head($titre = "") {?>
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -24,3 +23,65 @@ function Js(){
     <script src="<?php echo URL_HOME ?>js/bootstrap.min.js" ></script>
     <script src="<?php echo URL_HOME ?>js/mdb.min.js" ></script>
 <?php }
+
+function modHeader($mod) {
+  $u = new utilisateur();
+  $u->id = $_SESSION['userId'];
+  $u->Load();
+  if (isset($mod) && $mod !== 'index') {
+    var_dump($mod);
+  }
+  ?>
+        <div class="row d-flex justify-content-end">
+      <div class="col-3  mt-2 ">
+        <img style="width: 200px" src="img/logo_transparent.png"
+          class="img-fluid rounded text-center animated fadeInRight" alt="Responsive image">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12  mb-5">
+        <!--Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark unique-color animated fadeInDown">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item  <?php echo ($mod ==='index') ? 'active' : '' ?>">
+                <a class="nav-link" href="index.php">Utilisateurs
+                </a>
+              </li>
+              <li class="nav-item <?php echo ($mod === 'produit') ? 'active' : '' ?>">
+                <a class="nav-link" href="form.php?mod=produit">Produits</a>
+              </li>
+              <li class="nav-item <?php echo ($mod ==='categorie') ? 'active' : '' ?>">
+                <a class="nav-link" href="form.php?mod=categorie">Catégorie produits</a>
+              </li>
+              <li class="nav-item <?php echo ($mod ==='client') ? 'active' : '' ?>">
+                <a class="nav-link" href="form.php?mod=client">Client</a>
+              </li>
+              <li class="nav-item <?php echo ($mod ==='commande') ? 'active' : '' ?>">
+                <a class="nav-link" href="form.php?mod=commande">Commande</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-user"></i><?php echo $u->nom ?>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                  aria-labelledby="navbarDropdownMenuLink-333">
+                  <a class="dropdown-item" href="#">Compte</a>
+                  <a class="dropdown-item" href="?action=Deconnexion">Déconnexion</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!--/.Navbar -->
+      </div>
+    </div>
+    <?php
+}
