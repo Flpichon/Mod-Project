@@ -20,4 +20,8 @@ class utilisateur extends projet {
          $this->suppr = 0;
     }
 
+    public function GetInfosUtilisateurs(){
+        echo $this->nom;
+    }
+
 }

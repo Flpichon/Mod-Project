@@ -16,7 +16,7 @@ class projet {
 
   public function Delete() {
     $this->Load();
-    $this->suppr =1;
+    $this->suppr = 1;
     $this->Update();
   }
     

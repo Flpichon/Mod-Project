@@ -8,33 +8,50 @@ if(isset($_GET["action"]) && $_GET["action"] == "connexion")
     $c->Connexion();
 }
 ?>
-
 <!doctype html>
 <html lang="fr">
 <?php Head("connexion"); ?>
-  <body>
-  <section class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <h1>Section Administrative<small>Connexion</small></h1>
+<body class="unique-color-dark">
+<section class="container">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 pb-5">
+      <form action="?action=connexion" method="POST">
+          <div class="card rounded-0">
+            <div class="card-header p-0 border-bottom-0">
+              <div class="unique-color text-white text-center py-2">
+                <h3><i class="fa fa-envelope animated fadeInLeft"></i> connexion </h3>
+                <p class="m-0">entrez vos informations</p>
+              </div>
+            </div>
+            <div class="card-body  mdb-color p-3">
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                  </div>
+                  <input type="text" class="form-control" id="login" name="login" placeholder="Login" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-envelope text-info animated fadeInLeft"></i></div>
+                  </div>
+                  <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe" required>
+                </div>
+              </div>
+              <div class="text-center">
+                <input type="submit" value="Connexion" class="btn btn-info btn-block rounded-0 py-2">
+              </div>
+            </div>
 
-            <form action="?action=connexion" method="POST">
-                <article class="form-group">
-                    <label for="">Login</label>
-                    <input type="text" name="login" class="form-control">
-                </article>
-                <article class="form-group">
-                    <label for="">Mot de passe</label>
-                    <input type="text" name="mdp" class="form-control">
-                </article>
-                <button class="btn btn-default" type="reset">Annuler</button>
-                <button class="btn btn-primary" type="submit">Se Connecter</button>
-            </form>
-        </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
   </section>
-    
-  
   <?php Js(); ?>
   </body>
 </html>

@@ -34,9 +34,10 @@ class connexion extends projet{
         
         if(!empty($res))
         {
-            $_SESSION[$this->nom] =true;
+            $_SESSION[$this->nom] = true;
             $_SESSION["login"] =$login;
             $_SESSION["mdp"] =$mdp;
+            $_SESSION['userId'] = $res[0]['id'];
             header("Location:index.php");
         }
 
