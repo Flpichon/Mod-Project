@@ -25,20 +25,22 @@ class connexion extends projet{
     }
 
     public function Connexion(){
-        $new_connexion = new connexion;
-        $login = $_POST["login"];
-        $mdp = md5($_POST["mdp"]);
-        $bind = array("login" => $login, "mdp" => $mdp);
-        $req = "select * from utilisateur where suppr = 0 and login = :login and mdp = :mdp limit 0,1";
-        $res = $new_connexion->sql($req, "id", $bind);
-        
-        if(!empty($res))
-        {
-            $_SESSION[$this->nom] = true;
-            $_SESSION["login"] =$login;
-            $_SESSION["mdp"] =$mdp;
-            $_SESSION['userId'] = $res[0]['id'];
-            header("Location:index.php");
+        if (isset($_POST["login"]) && isset($_POST["mdp"])) {
+            $new_connexion = new connexion;
+            $login = $_POST["login"];
+            $mdp = md5($_POST["mdp"]);
+            $bind = array("login" => $login, "mdp" => $mdp);
+            $req = "select * from utilisateur where suppr = 0 and login = :login and mdp = :mdp limit 0,1";
+            $res = $new_connexion->sql($req, "id", $bind);
+            
+            if(!empty($res))
+            {
+                $_SESSION[$this->nom] = true;
+                $_SESSION["login"] =$login;
+                $_SESSION["mdp"] =$mdp;
+                $_SESSION['userId'] = $res[0]['id'];
+                header("Location:index.php");
+            }
         }
 
     }

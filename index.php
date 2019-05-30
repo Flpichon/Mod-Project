@@ -1,7 +1,12 @@
 <?php 
 include("0-config/config-genos.php");
 include("0-config/code-affichage.php");
-
+if (isset($_GET["mod"]) && isset($_GET['action'])) {
+  $utilisateur = new utilisateur();
+  $utilisateur->LoadForm();
+  $utilisateur->Add();
+  header("Location: index.php");
+}
 ?>
 <head>
   <meta charset="utf-8">
@@ -15,7 +20,7 @@ include("0-config/code-affichage.php");
   <?php modHeader('index'); ?>
     <div class="row">
       <div class="col-lg-3 col-12 mb-1 text-right">
-        <button type="button" class="btn btn-mdb-color">Ajouter un Utilisateur</button>
+        <a type="button" href="form.php?mod=utilisateur&action=ajout" class="btn btn-mdb-color">Ajouter un Utilisateur</a>
       </div>
     </div>
     <div class="row">

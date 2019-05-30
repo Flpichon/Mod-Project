@@ -29,7 +29,7 @@ function modHeader($mod) {
   $u->id = $_SESSION['userId'];
   $u->Load();
   if (isset($mod) && $mod !== 'index') {
-    var_dump($mod);
+    
   }
   ?>
         <div class="row d-flex justify-content-end">
@@ -53,16 +53,16 @@ function modHeader($mod) {
                 </a>
               </li>
               <li class="nav-item <?php echo ($mod === 'produit') ? 'active' : '' ?>">
-                <a class="nav-link" href="form.php?mod=produit">Produits</a>
+                <a class="nav-link" href="module.php?mod=produit">Produits</a>
               </li>
               <li class="nav-item <?php echo ($mod ==='categorie') ? 'active' : '' ?>">
-                <a class="nav-link" href="form.php?mod=categorie">Catégorie produits</a>
+                <a class="nav-link" href="module.php?mod=categorie">Catégorie produits</a>
               </li>
               <li class="nav-item <?php echo ($mod ==='client') ? 'active' : '' ?>">
-                <a class="nav-link" href="form.php?mod=client">Client</a>
+                <a class="nav-link" href="module.php?mod=client">Clients</a>
               </li>
               <li class="nav-item <?php echo ($mod ==='commande') ? 'active' : '' ?>">
-                <a class="nav-link" href="form.php?mod=commande">Commande</a>
+                <a class="nav-link" href="module.php?mod=commande">Commandes</a>
               </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
@@ -84,4 +84,28 @@ function modHeader($mod) {
       </div>
     </div>
     <?php
+}
+function AddButton($mod) {
+  switch ($mod) {
+    case 'produit':
+      $toAdd = ' AJOUTER UN PRODUIT';
+      break;
+    case 'categorie':
+      $toAdd = 'AJOUTER UNE CATEGORIE';
+      break;
+    case 'client':
+      $toAdd = 'AJOUTER UN CLIENT';
+    break;
+    case 'commande':
+      $toAdd = 'PASSER UNE COMMANDE';
+    break;
+    default:
+      $toAdd = 'AJOUTER';
+      break;
+  }
+  ?>
+    <div class="col-lg-3 col-12 mb-1 text-right">
+    <a type="button" href="form.php?mod=<?php echo $mod ?>&action=ajout" class="btn btn-mdb-color"><?php echo $toAdd ?></a>
+  </div>
+  <?php
 }

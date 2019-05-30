@@ -1,10 +1,8 @@
 <?php
     include("0-config/config-genos.php");
     include("0-config/code-affichage.php");
-    if (isset($_GET["mod"]) && isset($_GET['action'])) {
-        $mod = ucfirst($_GET['mod']);
-        $action = ucfirst($_GET['action']);
-    }
+    $mod = $_GET['mod'];
+    var_dump($mod);
 ?>
 <!doctype html>
     <html lang="fr">
@@ -12,7 +10,7 @@
         <body class="unique-color-dark">
             <div class="container">
             <?php modHeader($mod) ?>
-            <?php $mod::$action(); ?>
+            <?php AddButton($mod) ?>  
             <?php Js(); ?>
             </div>
         </body>
