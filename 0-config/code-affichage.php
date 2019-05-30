@@ -22,6 +22,7 @@ function Js(){
     <script src="<?php echo URL_HOME?>js/popper.min.js"></script>
     <script src="<?php echo URL_HOME ?>js/bootstrap.min.js" ></script>
     <script src="<?php echo URL_HOME ?>js/mdb.min.js" ></script>
+    <script src="<?php echo URL_HOME ?>js/script.js" ></script>
 <?php }
 
 function modHeader($mod) {
@@ -106,6 +107,16 @@ function AddButton($mod) {
   ?>
     <div class="col-lg-3 col-12 mb-1 text-right">
     <a type="button" href="form.php?mod=<?php echo $mod ?>&action=ajout" class="btn btn-mdb-color"><?php echo $toAdd ?></a>
+  </div>
+  <?php
+}
+
+function Fail() {
+  ?>
+  <div id="failAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Erreur</strong>
+    Veuillez saisir un login et un mot de passe valide.
   </div>
   <?php
 }

@@ -6,11 +6,13 @@ if(isset($_GET["action"]) && $_GET["action"] == "connexion")
 {
     $c = new connexion;
     $c->Connexion();
+    $fail = true;
 }
 ?>
 <!doctype html>
 <html lang="fr">
 <?php Head("connexion"); ?>
+<?php if(isset($fail)) Fail();  ?>
 <body class="unique-color-dark">
 <section class="container">
   <div class="container mt-5">
@@ -55,3 +57,6 @@ if(isset($_GET["action"]) && $_GET["action"] == "connexion")
   <?php Js(); ?>
   </body>
 </html>
+<script>
+
+</script>
