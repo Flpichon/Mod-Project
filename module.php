@@ -42,7 +42,7 @@
           $id = substr($key, -2);
           if(!array_key_exists($id, $tableSort)) {
             $tableSort[$id][] = $value;
-          } else {            ;
+          } else {
           array_push($tableSort[$id], $value);
           }
         }
