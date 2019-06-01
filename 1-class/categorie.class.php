@@ -108,4 +108,16 @@ class categorie extends projet {
     </div>
     <?php
   }
+
+  public static function GetCategorieById($id) {
+    $c = new categorie;
+    $bind = array("id" => $id);
+    $req = "Select * from categorie where suppr = 0 and id= :id";
+    $champs = array("id","libelle");
+    $res = $c->StructList($req, $champs, $bind);
+    $c->id = reset($res)['id'];
+    $c->libelle = reset($res)['libelle'];
+    return $c;
+  }
+
 }

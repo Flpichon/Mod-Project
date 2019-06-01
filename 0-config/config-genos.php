@@ -36,7 +36,10 @@
 	include(__Dir__."/../1-class/connexion.class.php");	
 	include(__Dir__."/../1-class/utilisateur.class.php");
 	include(__Dir__."/../1-class/categorie.class.php");	
-	include(__Dir__."/../1-class/client.class.php");		
+	include(__Dir__."/../1-class/client.class.php");
+	include(__Dir__."/../1-class/produit.class.php");
+	include(__Dir__."/../1-class/ligne_produit.class.php");		
+	include(__Dir__."/../1-class/commande.class.php");	
 	$set = new connexion;
 	$set->VerifConnexion();
 
