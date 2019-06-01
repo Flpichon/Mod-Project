@@ -3,8 +3,15 @@ include("0-config/config-genos.php");
 include("0-config/code-affichage.php");
 if (isset($_GET["mod"]) && isset($_GET['action'])) {
   $utilisateur = new utilisateur();
-  $utilisateur->LoadForm();
-  $utilisateur->Add();
+  if ($_GET['action'] === 'modif' || $_GET['action'] === 'suppr') {
+    $utilisateur->id = $_GET['id'];
+    $utilisateur->Load();
+  }
+  if ($_GET['action'] === 'ajout' || $_GET['action'] === 'modif') {
+    $utilisateur->LoadForm();
+  }
+  $method = ($_GET['action'] === 'ajout') ? 'Add' : ($_GET['action'] === 'suppr' ? 'Delete' : 'Update');
+  $utilisateur->$method();
   header("Location: index.php");
 }
 ?>

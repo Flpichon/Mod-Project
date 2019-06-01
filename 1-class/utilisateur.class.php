@@ -24,7 +24,7 @@ class utilisateur extends projet {
 
     public static function DisplayUsers() {
         $u = new utilisateur;
-        $req = "Select * from utilisateur ";
+        $req = "Select * from utilisateur where suppr = 0";
         $champs = array("id","nom","prenom","login");
         $liste = $u->StructList($req,$champs);
         foreach($liste as $key => $user) {
@@ -36,12 +36,12 @@ class utilisateur extends projet {
             <span><?php echo $user['prenom'] ?></span>
             <span><?php echo $user['login']?></span>
             <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn">
-                <a href="">
+                <a href="index.php?mod=utilisateur&action=suppr&id=<?php echo $user['id']?>">
                 <i class="fas fa-times fa-lg white-text"></i>
                 </a>
             </span>
             <span class="badge badge-success badge-pill float-right p-2 animated zoomIn">
-                <a href="">
+                <a href="form.php?mod=utilisateur&action=modif&id=<?php echo $user['id']?>">
                 <i class="fas fa-wrench fa-lg white-text"></i>
                 </a>
             </span>
@@ -49,6 +49,7 @@ class utilisateur extends projet {
         <?php 
         }
     }
+
     public static function Ajout() {
         ?>
         <div class="container mt-5">
@@ -103,7 +104,70 @@ class utilisateur extends projet {
                     </div>
                   </div>
                   <div class="text-center">
+                    <input type="reset" value="Annuler" class="btn btn-info btn-block rounded-0 py-2">
                     <input type="submit" value="Ajouter" class="btn btn-info btn-block rounded-0 py-2">
+                  </div>
+                </div>
+    
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <?php
+    }
+
+    public static function Modif() {
+        $utilisateur = new utilisateur;
+        $utilisateur->id = $_GET["id"];
+        $utilisateur->Load();
+        ?>
+        <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6 pb-5">
+          <form action="index.php?mod=utilisateur&action=modif&id=<?php echo $utilisateur->id ?>" method="POST">
+              <div class="card rounded-0">
+                <div class="card-header p-0 border-bottom-0">
+                  <div class="unique-color text-white text-center py-2">
+                    <p class="m-0">Modifer les informations de l'utilisateur</p>
+                  </div>
+                </div>
+                <div class="card-body  mdb-color p-3">
+                  <div class="form-group">
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                      </div>
+                      <input value="<?php echo $utilisateur->nom ?>" type="text" class="form-control" id="nom" name="nom" placeholder="nom" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                      </div>
+                      <input value="<?php echo $utilisateur->prenom ?>" type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                      </div>
+                      <input value="<?php echo $utilisateur->login ?>" type="text" class="form-control" id="login" name="login" placeholder="Login" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                      </div>
+                      <input value="<?php echo $utilisateur->email ?>" type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <input type="reset" value="Annuler" class="btn btn-info btn-block rounded-0 py-2">
+                    <input type="submit" value="Modifier" class="btn btn-info btn-block rounded-0 py-2">
                   </div>
                 </div>
     

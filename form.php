@@ -12,7 +12,7 @@
         <body class="unique-color-dark">
             <div class="container">
             <?php modHeader($mod) ?>
-            <?php $mod::$action(); ?>
+            <?php $_GET["mod"]::$action(); ?>
             <?php Js(); ?>
             </div>
         </body>

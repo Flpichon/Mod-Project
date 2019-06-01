@@ -1,5 +1,5 @@
 <?php 
-class categorie extends project {
+class categorie extends projet {
     public $id;
     public $libelle;
     public $suppr;
@@ -7,7 +7,33 @@ class categorie extends project {
     public function __construct() {
         $this->id = 0;
         $this->libelle = "";
-        $this->suppr = "";
+        $this->suppr = 0;
+    }
+
+    public static function DisplayCategorie() {
+        $c = new categorie;
+        $req = "Select * from categorie where suppr = 0";
+        $champs = array("id","libelle");
+        $liste = $c->StructList($req,$champs);
+        foreach($liste as $key => $categorie) {
+        ?>
+            <li class="list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
+            <div class="md-v-line"></div><i class="fas fa-user mr-5 animated fadeInLeft"></i>
+            <span><?php echo $key+1 ?></span> 
+            <span><?php echo $categorie['libelle'] ?></span>
+            <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn">
+                <a href="module.php?mod=categorie&action=suppr&id=<?php echo $categorie['id']?>">
+                <i class="fas fa-times fa-lg white-text"></i>
+                </a>
+            </span>
+            <span class="badge badge-success badge-pill float-right p-2 animated zoomIn">
+                <a href="form.php?mod=categorie&action=modif&id=<?php echo $categorie['id']?>">
+                <i class="fas fa-wrench fa-lg white-text"></i>
+                </a>
+            </span>
+            </li>
+        <?php 
+        }
     }
 
     public static function Ajout() {
@@ -15,7 +41,7 @@ class categorie extends project {
         <div class="container mt-5">
         <div class="row justify-content-center">
           <div class="col-12 col-md-8 col-lg-6 pb-5">
-          <form action="index.php?mod=utilisateur&action=ajout" method="POST">
+          <form action="module.php?mod=categorie&action=ajout" method="POST">
               <div class="card rounded-0">
                 <div class="card-header p-0 border-bottom-0">
                   <div class="unique-color text-white text-center py-2">
@@ -28,15 +54,7 @@ class categorie extends project {
                       <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
                       </div>
-                      <input type="text" class="form-control" id="nom" name="nom" placeholder="nom" required>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group mb-2">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
-                      </div>
-                      <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom" required>
+                      <input type="text" class="form-control" id="libelle" name="libelle" placeholder="libellé" required>
                     </div>
                   </div>
                   <div class="text-center">
