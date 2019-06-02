@@ -36,11 +36,11 @@
       $commande->Add();
       $commande_c = $commande::GetCurrentCommande($id_utilisateur, $_POST['id_client']);
       $table = $_POST;
-      var_dump($table);
       array_shift($table);
       $tableSort = array();
       foreach ($table as $key => $value) {
-        $id = substr($key, -2);
+        preg_match_all('!\d+!', $key, $id);
+        $id = reset($id[0]);
         if(!array_key_exists($id, $tableSort)) {
           $tableSort[$id][] = $value;
         } else {
