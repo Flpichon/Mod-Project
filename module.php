@@ -57,6 +57,7 @@
         $lP->id_commande = $commande_c->id;
         $lP->prix_ligne = $prix_ligne;
         $prix_commande+= $prix_ligne;
+        var_dump($lP);
         $lP->Add();
         }
       }
