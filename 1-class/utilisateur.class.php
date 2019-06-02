@@ -179,4 +179,15 @@ class utilisateur extends projet {
       <?php
     }
 
+    public static function GetUserById($user_id) {
+      $u = new utilisateur;
+      $bind = array("id" => $user_id);
+      $req = "Select * from utilisateur where suppr = 0 and id= :id";
+      $champs = array("id","login");
+      $res = $u->StructList($req, $champs, $bind);
+      $u->id = reset($res)['id'];
+      $u->login =  reset($res)['login'];
+      return $u;
+    }
+
 }

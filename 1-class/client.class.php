@@ -148,4 +148,15 @@ class client extends projet {
       <?php
     }
 
+    public static function GetClientById($client_id) {
+      $cli = new client;
+      $bind = array("id" => $client_id);
+      $req = "Select * from client where suppr = 0 and id= :id";
+      $champs = array("id","email");
+      $res = $cli->StructList($req, $champs, $bind);
+      $cli->id = reset($res)['id'];
+      $cli->email =  reset($res)['email'];
+      return $cli;
+    }
+
 }
