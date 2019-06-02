@@ -52,7 +52,7 @@ class categorie extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-box text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="text" class="form-control" id="libelle" name="libelle" placeholder="libellé" required>
                     </div>

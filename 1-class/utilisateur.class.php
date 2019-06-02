@@ -66,7 +66,7 @@ class utilisateur extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="text" class="form-control" id="nom" name="nom" placeholder="nom" required>
                     </div>
@@ -74,7 +74,7 @@ class utilisateur extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom" required>
                     </div>
@@ -82,7 +82,7 @@ class utilisateur extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="text" class="form-control" id="login" name="login" placeholder="Login" required>
                     </div>
@@ -90,7 +90,7 @@ class utilisateur extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-envelope text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                     </div>
@@ -98,7 +98,7 @@ class utilisateur extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe" required>
                     </div>
