@@ -16,7 +16,7 @@ class categorie extends projet {
         $champs = array("id","libelle");
         $liste = $c->StructList($req,$champs);
         ?>
-        <ul class="row list-group list-group-horizontal d-flex justify-content-around">
+        <ul class="row list-group list-group-horizontal d-flex justify-content-around m-1">
         <?php
         foreach($liste as $key => $categorie) {
         ?>
