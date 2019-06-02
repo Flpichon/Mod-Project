@@ -95,8 +95,10 @@ class commande extends projet {
         $champs = array("id","date", "statut", "prix", "id_utilisateur", "id_client");
         $liste = $c->StructList($req,$champs);
         foreach ($liste as $key => $commande) {
+          $u = utilisateur::GetUserById($commande['id_utilisateur']);
+          $cli = client::GetClientById($commande['id_client']);
             ?>
-            
+              
             <?php
         }
     }
