@@ -27,14 +27,17 @@ class utilisateur extends projet {
         $req = "Select * from utilisateur where suppr = 0";
         $champs = array("id","nom","prenom","login");
         $liste = $u->StructList($req,$champs);
+        ?>
+        <ul class="row list-group list-group-horizontal d-flex justify-content-around">
+        <?php
         foreach($liste as $key => $user) {
         ?>
-            <li class="list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
+            <li class="col-xs-12 col-md-8 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
             <div class="md-v-line"></div><i class="fas fa-user mr-5 animated fadeInLeft"></i>
             <span><?php echo $key+1 ?></span> 
-            <span><?php echo $user['nom'] ?></span>
-            <span><?php echo $user['prenom'] ?></span>
-            <span><?php echo $user['login']?></span>
+            <span><?php echo str_repeat('&nbsp;', 2).$user['nom'] ?></span>
+            <span><?php echo str_repeat('&nbsp;', 2).$user['prenom'] ?></span>
+            <span><?php echo str_repeat('&nbsp;', 2).$user['login']?></span>
             <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn">
                 <a href="index.php?mod=utilisateur&action=suppr&id=<?php echo $user['id']?>">
                 <i class="fas fa-times fa-lg white-text"></i>
@@ -48,6 +51,9 @@ class utilisateur extends projet {
             </li>
         <?php 
         }
+        ?>
+        </ul>
+        <?php
     }
 
     public static function Ajout() {
