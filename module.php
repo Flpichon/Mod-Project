@@ -27,42 +27,45 @@
         $mod->$method();
        header("Location: module.php?mod=".$_GET["mod"]);
       }
-      if (isset($_GET["mod"]) && isset($_GET['action']) && $_GET["mod"] === 'commande') {
-        $id_utilisateur = $_GET['id_utilisateur'];
-        $commande = new commande();
-        $commande->id_utilisateur = $id_utilisateur;
-        $commande->id_client = $_POST['id_client'];
-        $commande->statut = 'en cours';
-        $commande->Add();
-        $commande_c = $commande::GetCurrentCommande($id_utilisateur, $_POST['id_client']);
-        $table = $_POST;
-        array_shift($table);
-        $tableSort = array();
-        foreach ($table as $key => $value) {
-          $id = substr($key, -2);
-          if(!array_key_exists($id, $tableSort)) {
-            $tableSort[$id][] = $value;
-          } else {
-          array_push($tableSort[$id], $value);
-          }
+    if (isset($_GET["mod"]) && isset($_GET['action']) && $_GET["mod"] === 'commande') {
+      $id_utilisateur = $_GET['id_utilisateur'];
+      $commande = new commande();
+      $commande->id_utilisateur = $id_utilisateur;
+      $commande->id_client = $_POST['id_client'];
+      $commande->statut = 'en cours';
+      $commande->Add();
+      $commande_c = $commande::GetCurrentCommande($id_utilisateur, $_POST['id_client']);
+      $table = $_POST;
+      var_dump($table);
+      array_shift($table);
+      $tableSort = array();
+      foreach ($table as $key => $value) {
+        $id = substr($key, -2);
+        if(!array_key_exists($id, $tableSort)) {
+          $tableSort[$id][] = $value;
+        } else {
+        array_push($tableSort[$id], $value);
         }
-        $prix_commande = 0;
-        foreach ($tableSort as $key => $value) {
-         $lP = new ligne_produit;
-         $lP->quantite = $value[0];
-         $prix_ligne = $value[0] * $value[1];
-         $lP->id_produit = $key;
-         $lP->id_commande = $commande_c->id;
-         $lP->prix_ligne = $prix_ligne;
-         $prix_commande+= $prix_ligne;
-         $lP->Add();
-        }
-        $commande_c->Load();
-        $commande_c->prix = $prix_commande;
-        $commande_c->statut = 'terminée';
-        $commande_c->Update();
-        header("Location: module.php?mod=".$_GET["mod"]);
       }
+      $prix_commande = 0;
+      foreach ($tableSort as $key => $value) {
+        if($value[0] !== '' && $value[0] !== 0) {
+        $lP = new ligne_produit;
+        $lP->quantite = $value[0];
+        $prix_ligne = $value[0] * $value[1];
+        $lP->id_produit = $key;
+        $lP->id_commande = $commande_c->id;
+        $lP->prix_ligne = $prix_ligne;
+        $prix_commande+= $prix_ligne;
+        $lP->Add();
+        }
+      }
+      $commande_c->Load();
+      $commande_c->prix = $prix_commande;
+      $commande_c->statut = 'terminée';
+      $commande_c->Update();
+      header("Location: module.php?mod=".$_GET["mod"]);
+    }
 ?>
 <!doctype html>
     <html lang="fr">

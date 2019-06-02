@@ -64,8 +64,6 @@ class commande extends projet {
 
     public static function GetCurrentCommande($id_utilisateur, $id_client) {
         $c = new commande;
-        var_dump($id_utilisateur);
-        var_dump($id_client);
         $bind = array("id_utilisateur" => $id_utilisateur, "id_client" => $id_client);
         $req = "Select * from commande where suppr = 0 and id_utilisateur= :id_utilisateur and id_client= :id_client and statut= 'en cours'";
         $champs = array("id");
@@ -73,5 +71,17 @@ class commande extends projet {
         var_dump($res);
         $c->id = reset($res)['id'];
         return $c;
+    }
+
+    public static function DisplayCommande() {
+        $c = new commande;
+        $req = 'Select * from commande where suppr = 0';
+        $champs = array("id","date", "statut", "prix", "id_utilisateur", "id_client");
+        $liste = $c->StructList($req,$champs);
+        foreach ($liste as $key => $commande) {
+            ?>
+            
+            <?php
+        }
     }
 }
