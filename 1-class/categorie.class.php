@@ -16,7 +16,7 @@ class categorie extends projet {
         $champs = array("id","libelle");
         $liste = $c->StructList($req,$champs);
         ?>
-        <ul class="row list-group list-group-horizontal d-flex justify-content-around">
+        <ul class="row list-group list-group-horizontal d-flex justify-content-around m-1">
         <?php
         foreach($liste as $key => $categorie) {
         ?>
@@ -24,7 +24,7 @@ class categorie extends projet {
             <li class="col-xs-12 col-md-5 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
             <div class="md-v-line"></div><i class="fas fa-box mr-5 animated fadeInLeft"></i>
             <span><?php echo $key+1 ?></span> 
-            <span><?php echo $categorie['libelle'] ?></span>
+            <span><?php echo str_repeat('&nbsp;', 2).$categorie['libelle'] ?></span>
             <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn">
                 <a href="module.php?mod=categorie&action=suppr&id=<?php echo $categorie['id']?>">
                 <i class="fas fa-times fa-lg white-text"></i>

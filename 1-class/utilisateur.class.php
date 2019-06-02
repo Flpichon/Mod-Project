@@ -28,7 +28,7 @@ class utilisateur extends projet {
         $champs = array("id","nom","prenom","login");
         $liste = $u->StructList($req,$champs);
         ?>
-        <ul class="row list-group list-group-horizontal d-flex justify-content-around">
+        <ul class="row list-group list-group-horizontal d-flex justify-content-around m-1">
         <?php
         foreach($liste as $key => $user) {
         ?>
