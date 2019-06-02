@@ -227,4 +227,15 @@ class produit extends projet {
       <?php
     }
 
+    public static function GetProduitById($id_produit) {
+        $produit = new produit;
+        $bind = array("id_produit" => $id_produit);
+        $req = "Select * from produit where suppr = 0 and id= :id_produit";
+        $champs = array("id","libelle");
+        $res = $produit->StructList($req, $champs, $bind);
+        $produit->id = reset($res)['id'];
+        $produit->libelle = reset($res)['libelle'];
+        return $produit;
+    }
+
 }

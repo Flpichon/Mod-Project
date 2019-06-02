@@ -31,8 +31,10 @@ class commande extends projet {
                     <span class="white-text">Sélectionnez un client :</span>
                     <?php 
                       $cli = new client;
+                      $query = "select * from client where suppr = 0";
                       $config = array ();
                       $config[ "class" ] = "browser-default custom-select mb-4" ;
+                      $config["sql"] = $query;
                       $cli -> SelectList("id_client","id","email",$config);
                     ?>
                   </div>
@@ -84,9 +86,17 @@ class commande extends projet {
         $req = "Select * from commande where suppr = 0 and id_utilisateur= :id_utilisateur and id_client= :id_client and statut= 'en cours'";
         $champs = array("id");
         $res = $c->StructList($req, $champs, $bind);
-        var_dump($res);
         $c->id = reset($res)['id'];
         return $c;
+    }
+
+    public function GetLignesProduit() {
+      $lP = new ligne_produit;
+      $bind = array("id_commande" => $this->id);
+      $req = "Select * from ligne_produit where suppr = 0 and id_commande= :id_commande";
+      $champs = array("quantite","prix_ligne","id_produit");
+      $res = $lP->StructList($req, $champs, $bind);
+      return $res;
     }
 
     public static function DisplayCommande() {
@@ -94,12 +104,46 @@ class commande extends projet {
         $req = 'Select * from commande where suppr = 0';
         $champs = array("id","date", "statut", "prix", "id_utilisateur", "id_client");
         $liste = $c->StructList($req,$champs);
+        ?>
+        <ul class="row list-group list-group-horizontal d-flex justify-content-around m-1">
+        <?php
         foreach ($liste as $key => $commande) {
           $u = utilisateur::GetUserById($commande['id_utilisateur']);
           $cli = client::GetClientById($commande['id_client']);
+          $c->id = $commande['id'];
+          $c->Load();
+
             ?>
-              
+              <li class="col-xs-12 col-md-8 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
+                <span><?php echo str_repeat('&nbsp;', 2).$commande['date'] ?></span>
+                <span><?php echo str_repeat('&nbsp;', 2).$commande['prix'] ?></span>
+                <span><?php echo str_repeat('&nbsp;', 2).$commande['statut']?></span>
+                <span><?php echo str_repeat('&nbsp;', 2).$u->login?></span>
+                <span><?php echo str_repeat('&nbsp;', 2).$cli->email?></span>
+                <a class="btn btn-primary " data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  détails
+                </a>
+                <div class="collapse" id="collapseExample">
+                <div class="mt-3">
+                    <?php $details = $c->GetLignesProduit();
+                    foreach ($details as $key => $ligne_produit) {
+                      $produit = produit::GetProduitById($ligne_produit['id_produit']);              
+                      ?>
+                       <div class="col-xs-12 col-md-8">
+                      <span>produit : <?php echo str_repeat('&nbsp;', 2).$produit->libelle.str_repeat('&nbsp;', 2)?></span>
+                      <span>quantité : <?php echo str_repeat('&nbsp;', 2).$ligne_produit['quantite'].str_repeat('&nbsp;', 2) ?></span>
+                      <span>prix : <?php echo str_repeat('&nbsp;', 2).$ligne_produit['prix_ligne']?>€</span>
+                    </div>
+                      <?php
+                    }
+                    ?>
+                </div>
+              </div>
+              </li>
             <?php
         }
+        ?>
+        </ul>
+        <?php
     }
 }

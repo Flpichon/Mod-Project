@@ -155,7 +155,7 @@ class client extends projet {
       $champs = array("id","email");
       $res = $cli->StructList($req, $champs, $bind);
       $cli->id = reset($res)['id'];
-      $cli->email =  reset($res)['email'];
+      $cli->email =reset($res)['email'];
       return $cli;
     }
 
