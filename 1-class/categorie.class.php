@@ -15,9 +15,13 @@ class categorie extends projet {
         $req = "Select * from categorie where suppr = 0";
         $champs = array("id","libelle");
         $liste = $c->StructList($req,$champs);
+        ?>
+        <ul class="row list-group list-group-horizontal d-flex justify-content-around">
+        <?php
         foreach($liste as $key => $categorie) {
         ?>
-            <li class="list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
+          
+            <li class="col-xs-12 col-md-5 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
             <div class="md-v-line"></div><i class="fas fa-box mr-5 animated fadeInLeft"></i>
             <span><?php echo $key+1 ?></span> 
             <span><?php echo $categorie['libelle'] ?></span>
@@ -34,6 +38,9 @@ class categorie extends projet {
             </li>
         <?php 
         }
+        ?>
+        </ul>
+        <?php
     }
 
     public static function Ajout() {
