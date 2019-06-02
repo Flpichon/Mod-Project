@@ -22,16 +22,27 @@ class commande extends projet {
     public static function Ajout() {
         $liste = produit::GetProduits();
             ?>
-        <div class="container mt-5">
-          <form action="module.php?mod=commande&action=ajout&id_utilisateur=<?php echo $_SESSION['userId'] ?>" method="POST">
-              <?php 
-                $cli = new client;
-                $cli -> SelectList("id_client","id","email");
-              ?>
+        <div class="container mt-2">
+          <div class="row">
+            <div class="col-12">
+              <form action="module.php?mod=commande&action=ajout&id_utilisateur=<?php echo $_SESSION['userId'] ?>" method="POST">
+                <div class="row">
+                  <div class="col-xs-12 col-md-5">                
+                    <span class="white-text">Sélectionnez un client :</span>
+                    <?php 
+                      $cli = new client;
+                      $config = array ();
+                      $config[ "class" ] = "browser-default custom-select mb-4" ;
+                      $cli -> SelectList("id_client","id","email",$config);
+                    ?>
+                  </div>
+                </div>
+
+              <div class="table-responsive text-nowrap">
               <table class="table table-bordered text-center">
                 <thead>
                     <tr>
-                    <th class="white-text" scope="col">#</th>
+                    <th class="white-text d-none d-sm-block" scope="col">#</th>
                     <th class="white-text" scope="col">Produit</th>
                     <th class="white-text" scope="col">Prix unitaire</th>
                     <th class="white-text" scope="col">Quantité</th>
@@ -43,11 +54,13 @@ class commande extends projet {
             $idProduit = $produit['id'];
             ?>
             <tr class="font-weight-bold mb-2 mdb-color white-text align-middle p-2">
-            <div class="md-v-line"></div><i class="fas fa-user mr-5 animated fadeInLeft"></i>
-            <td><img class="card-img-top image-cmd" src="<?php echo URL_HOME.'img/images_produits/'.$produit['image'] ?>"  alt="Card image cap"></td>
+            <td class="d-none d-sm-block"><img class="card-img-top image-cmd" src="<?php echo URL_HOME.'img/images_produits/'.$produit['image'] ?>"  alt="Card image cap"></td>
             <td><?php echo $produit['libelle'] ?></td> 
             <td><?php echo $produit['prix_unitaire'] ?> €</td>
-            <td><input name="quantite<?php echo $idProduit ?>" id="quantite" type="number"/></td>
+            <td>
+            <span class="white-text">Sélectionnez la quantité :<br/><br/></span>
+            <input name="quantite<?php echo $idProduit ?>" id="quantite" type="number"/>
+            </td>
             </tr>
             <input type="hidden" name="prix_unitaire<?php echo $idProduit ?>" value="<?php echo $produit['prix_unitaire'] ?>">
             <input type="hidden" name="id_produit<?php echo $idProduit ?>" value="<?php echo $produit['id'] ?>">
@@ -56,9 +69,12 @@ class commande extends projet {
         ?>
               </tbody>
             </table>
+            </div>
             <input type="submit" class="btn btn-mdb-color" value="Valider"/>
           </form>
         </div>
+      </div>
+    </div>
         <?php
     }
 

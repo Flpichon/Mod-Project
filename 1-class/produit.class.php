@@ -49,7 +49,7 @@ class produit extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="text" class="form-control" id="libelle" name="libelle" placeholder="libellé" required>
                     </div>
@@ -57,7 +57,7 @@ class produit extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="number" class="form-control" id="prix_unitaire" name="prix_unitaire" placeholder="prix" step="0.01" required>
                     </div>
@@ -65,7 +65,7 @@ class produit extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="text" class="form-control" id="description" name="description" placeholder="description" required>
                     </div>
@@ -73,7 +73,7 @@ class produit extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="file" accept="image/jpeg image/png" class="form-control" id="image" name="image">
                     </div>
@@ -81,7 +81,7 @@ class produit extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <select class="form-control" id="id_categorie" name="id_categorie">
                         <?php
@@ -168,7 +168,7 @@ class produit extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="text" class="form-control" id="libelle" name="libelle" value="<?php echo $produit->libelle ?>" required>
                     </div>
@@ -176,7 +176,7 @@ class produit extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="number" class="form-control" id="prix_unitaire" name="prix_unitaire" value="<?php echo $produit->prix_unitaire ?>" step="0.01" required>
                     </div>
@@ -184,7 +184,7 @@ class produit extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="text" class="form-control" id="description" name="description" value="<?php echo $produit->description ?>" required>
                     </div>
@@ -192,7 +192,7 @@ class produit extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <input type="file" id="files" accept="image/jpeg image/png" class="form-control" value="<?php echo (__Dir__."/img/images_produits/".$produit->image)?>" id="image" name="image">
                     </div>
@@ -200,7 +200,7 @@ class produit extends projet {
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-user text-info animated fadeInLeft"></i></div>
+                        <div class="input-group-text"><i class="fa fa-edit text-info animated fadeInLeft"></i></div>
                       </div>
                       <select class="form-control" id="id_categorie" name="id_categorie">
                         <?php
