@@ -81,7 +81,7 @@ body {
 
 .bg-body {
     background-color: #efefef!important;
-    box-shadow: rgba(0, 0, 0, 0.75) 10px 10px 32px 0px;
+    /*box-shadow: rgba(0, 0, 0, 0.75) 10px 10px 32px 0px;*/
 }
 .bg-brey {
     background-color: #63594f;
@@ -106,6 +106,7 @@ body {
     font-size: 15px;
     padding: 12px 20px 10px 20px;
     text-decoration: none;
+    border: none;
   }
   
   .butn:hover {
@@ -116,6 +117,7 @@ body {
     background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
     background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
     text-decoration: none;
+    color: #ffffff;
   }
   .butn-red {
     background: #f01a1a;
@@ -132,6 +134,7 @@ body {
     font-size: 15px;
     padding: 12px 20px 10px 20px;
     text-decoration: none;
+    border:none;
   }
   
   .butn-red:hover {
@@ -142,6 +145,7 @@ body {
     background-image: -o-linear-gradient(top, #f75b5b, #eb4444);
     background-image: linear-gradient(to bottom, #f75b5b, #eb4444);
     text-decoration: none;
+    color: #ffffff;
   }
   .select2-search__field {
       width:100% !important;
