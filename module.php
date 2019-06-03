@@ -67,9 +67,7 @@
       $commande_c->Update();
       header("Location: module.php?mod=".$_GET["mod"]);
     }
-    if(isset($_GET['search'])) {
-      var_dump('ok');
-    }
+
 ?>
 <!doctype html>
     <html lang="fr">

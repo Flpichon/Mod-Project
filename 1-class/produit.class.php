@@ -113,15 +113,16 @@ class produit extends projet {
         $champs = array("id","libelle","description","prix_unitaire","image","id_categorie");
         $liste = $p->StructList($req,$champs);
         ?>
-        <div class="text-center">
-            <input id="filter" type="text" placeholder="catégorie" class="btn btn-info btn-block rounded-0 py-2">
-        </div>
+          <div class="col-6 text-center">
+              <select id="filter" type="text" class="btn btn-info btn-block rounded-0 py-2" multiple="multiple">
+              </select>
+          </div>
         <div class="row">
         <?php
         foreach ($liste as $produit) {
             $cat = categorie::GetCategorieById($produit['id_categorie']);
             ?>
-            <div class="col-md-4 col-12 mt-2 mb-2">
+            <div produit="<?php echo $produit['libelle'] ?>"class="col-md-4 col-12 mt-2 mb-2 produitDisplayed">
                 <div class="card mdb-color white-text">
                     <img class="card-img-top rounded mx-auto d-block bord mt-2" src="<?php echo URL_HOME.'img/images_produits/'.$produit['image'] ?>"  alt="Card image cap">
                     <div class="card-body">

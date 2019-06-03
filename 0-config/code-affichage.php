@@ -11,6 +11,7 @@ function Head($titre = "") {?>
     <link rel="stylesheet" href="<?php echo URL_HOME ?>css/mdb.min.css" >
     <link rel="stylesheet" href="<?php echo URL_HOME ?>css/style.min.css" >
     <link rel="stylesheet" href="<?php echo URL_HOME ?>css/all.css" >
+    <link rel="stylesheet" href="<?php echo URL_HOME ?>css/select2.min.css" >
     <title><?php echo $titre; ?></title>
   </head>
 
@@ -23,6 +24,7 @@ function Js(){
     <script src="<?php echo URL_HOME ?>js/bootstrap.min.js" ></script>
     <script src="<?php echo URL_HOME ?>js/mdb.min.js" ></script>
     <script src="<?php echo URL_HOME ?>js/script.js" ></script>
+    <script src="<?php echo URL_HOME ?>js/select2.full.min.js" ></script>
 <?php }
 
 function Footer(){
@@ -49,12 +51,6 @@ function modHeader($mod) {
     
   }
   ?>
-    <!--    <div class="row d-flex justify-content-end">
-      <div class="col-3  mt-2 ">
-        <img style="width: 200px" src="img/logo_transparent.png"
-          class="img-fluid rounded text-center animated fadeInRight" alt="Responsive image">
-      </div>
-    </div> -->
     <div class="row">
       <div class="col-12  mb-5">
         <!--Navbar -->
