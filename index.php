@@ -36,6 +36,7 @@ if (isset($_GET["mod"]) && isset($_GET['action'])) {
         </ul>
       </div>
     </div>
+    <?php Footer(); ?>
   </div>
   <?php Js(); ?>
   </body>

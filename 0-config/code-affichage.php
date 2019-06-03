@@ -25,6 +25,26 @@ function Js(){
     <script src="<?php echo URL_HOME ?>js/script.js" ></script>
 <?php }
 
+function Footer(){
+    ?>
+    <div class="bottom section-padding mt-5">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6 text-center white-text">
+						<div class="copyright">
+							<p>© <span>2019</span> <a href="https://github.com/Flpichon/Mod-Project" class="transition">Mod-Project</a> All rights reserved.</p>
+						</div>
+          </div>
+          <div class="col-md-6 text-center">
+          <img style="width: 100px" src="img/logo_transparent.png"
+          class="img-fluid rounded text-center animated fadeInRight" alt="Responsive image">
+          </div>
+				</div>
+			</div>
+		</div>
+    <?php
+}
+
 function modHeader($mod) {
   $u = new utilisateur();
   $u->id = $_SESSION['userId'];

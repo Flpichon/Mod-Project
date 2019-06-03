@@ -8,3 +8,44 @@
     height:90px;
 
 }
+
+.title_style{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.text_style{
+    font-weight: normal;
+    font-size: 14px;
+}
+
+a:hover{
+    text-decoration:none;
+}
+.section-padding {
+	padding: 30px 0;
+}
+.bottom {
+    background-color: #3f729b;
+}
+.bottom .copyright {
+    color: #ffffff;
+    font-weight: 600;
+}
+.copyright a {
+    color: #cacaca;
+    margin-left: 3px;
+    padding-right: 3px;
+}
+.bottom p {
+    margin-bottom: 0;
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.copyright p span {
+    color: #ffffff;
+}
+.bottom .copyright p, .bottom .copyright a:hover{
+    color: #ffffff;
+}
