@@ -60,8 +60,6 @@ var myPieChart = new Chart(ctxP, {
   }
 })
 }
-nbr = [];
-lib = [];
 $('.categorie-info').each(function(i) {
     nbr.push($(this).attr('prd'));
     lib.push($(this).attr('cat'));
@@ -88,4 +86,29 @@ if (document.getElementById("pieChartCat")) {
     })
  }
 
+ $('.client-info').each(function(i) {
+  nbr.push($(this).attr('cmd'));
+  lib.push($(this).attr('client'));
+})
+if (document.getElementById('pieChartClient')) {
+  var ctxP = document.getElementById("pieChartClient").getContext('2d');
+  var myPieChart = new Chart(ctxP, {
+    type: 'pie',
+    data: {
+      labels: lib,
+      datasets: [{
+        data: nbr,
+        backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360", "#4D5361", "#4D5362"],
+        hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774","#616775","#616774"]
+      }]
+    },
+    options: {
+      responsive: true,
+      title : {
+          display: true,
+          text: 'Nombre de commandes'
+      }
+    }
+  })
+}
 
