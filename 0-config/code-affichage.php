@@ -29,7 +29,7 @@ function Js(){
 
 function Footer(){
     ?>
-    <div class="bottom section-padding mt-5">
+    <div class="bottom section-padding mt-5 fixed-bottom">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-6 text-center white-text">

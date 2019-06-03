@@ -62,6 +62,10 @@ a:hover{
     border:solid 2px #1c2331;
 }
 
+.roundbtn{
+    border-radius: 26%
+}
+
 @media (max-width: 768px) { 
 .center-md-text{
     text-align: center;
