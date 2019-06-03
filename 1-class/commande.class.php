@@ -145,7 +145,7 @@ class commande extends projet {
                     foreach ($details as $key => $ligne_produit) {
                       $produit = produit::GetProduitById($ligne_produit['id_produit']);              
                       ?>
-                       <div class="col-xs-12 col-md-8">                     
+                       <div class="col-xs-12 col-md-8 border">                     
                        <span class="title_style text-default">PRODUIT : </span><span> <?php echo str_repeat('&nbsp;', 1).$produit->libelle.str_repeat('&nbsp;', 2)?></span></span>
                        <span class="title_style text-default">QUANTITÉ : </span><span> <?php echo str_repeat('&nbsp;', 1).$ligne_produit['quantite'].str_repeat('&nbsp;', 2) ?></span></span>
                        <span class="title_style text-default">PRIX : </span><span> <?php echo str_repeat('&nbsp;', 1).$ligne_produit['prix_ligne']?>€</span></span>
