@@ -28,7 +28,7 @@ class commande extends projet {
               <form action="module.php?mod=commande&action=ajout&id_utilisateur=<?php echo $_SESSION['userId'] ?>" method="POST">
                 <div class="row">
                   <div class="col-xs-12 col-md-5">                
-                    <span class="white-text">Sélectionnez un client :</span>
+                    <span class="black-text ">Sélectionnez un client :</span>
                     <?php 
                       $cli = new client;
                       $query = "select * from client where suppr = 0";
@@ -42,7 +42,7 @@ class commande extends projet {
 
               <div class="table-responsive text-nowrap">
               <table class="table table-bordered text-center">
-                <thead>
+                <thead class="bg-brey">
                     <tr>
                     <th class="white-text d-none d-sm-block" scope="col">#</th>
                     <th class="white-text" scope="col">Produit</th>
@@ -55,7 +55,7 @@ class commande extends projet {
         foreach ($liste as $key => $produit) {
             $idProduit = $produit['id'];
             ?>
-            <tr class="font-weight-bold mb-2 mdb-color white-text align-middle p-2">
+            <tr class="font-weight-bold mb-2 bg-all white-text align-middle p-2">
             <td class="d-none d-sm-block"><img class="card-img-top image-cmd" src="<?php echo URL_HOME.'img/images_produits/'.$produit['image'] ?>"  alt="Card image cap"></td>
             <td><?php echo $produit['libelle'] ?></td> 
             <td><?php echo $produit['prix_unitaire'] ?> €</td>
@@ -72,7 +72,7 @@ class commande extends projet {
               </tbody>
             </table>
             </div>
-            <input type="submit" class="btn btn-mdb-color" value="Valider"/>
+            <input type="submit" class="btn btn-bg-all" value="Valider"/>
           </form>
         </div>
       </div>
@@ -114,7 +114,7 @@ class commande extends projet {
           $c->Load();
 
             ?>
-              <li class="col-xs-12 col-sm-8 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
+              <li class="col-xs-12 col-sm-8 list-group-item font-weight-bold mb-2 bg-all white-text align-middle p-2 ">
                <div class="row center-md-text">
                  <div class="col-xs-12 col-md-4">
                  <span class="title_num_cmd text-default">N° Commande : </span><span class="text_num_cmd white-text"><?php echo str_repeat('&nbsp;', 2).$commande['id'] ?></span><br/>
@@ -127,12 +127,16 @@ class commande extends projet {
                     <span class="title_style text-default">EMAIL : </span> <span><?php echo str_repeat('&nbsp;', 2).$cli->email?></span>
                  </div>
                  <div class="col-xs-12 col-md-4">
-                <a class="btn btn-primary float-md-right roundbtn" data-toggle="collapse" href="#collapseExample<?php echo $key+1 ?>" aria-expanded="false" aria-controls="collapseExample<?php echo $key+1 ?>">
+                 <div class="col-xs-12 col-md-12 float-md-right">
+                <a class="btn btn-primary float-md-right butn" data-toggle="collapse" href="#collapseExample<?php echo $key+1 ?>" aria-expanded="false" aria-controls="collapseExample<?php echo $key+1 ?>">
                   détails
                 </a><br>
-                <a class="btn btn-danger float-md-right roundbtn" onclick="return(confirm('Voulez vous vraiment supprimer cette commande ?'))" href="module.php?mod=commande&action=suppr&id_commande=<?php echo $commande['id']?>" >
+                 </div>
+                 <div class="col-xs-12 col-md-12 float-md-right">
+                <a class="btn btn-danger float-md-right butn-red" onclick="return(confirm('Voulez vous vraiment supprimer cette commande ?'))" href="module.php?mod=commande&action=suppr&id_commande=<?php echo $commande['id']?>" >
                   Supprimer
                 </a>
+                </div>
                  </div>
                </div> 
 
@@ -145,7 +149,7 @@ class commande extends projet {
                     foreach ($details as $key => $ligne_produit) {
                       $produit = produit::GetProduitById($ligne_produit['id_produit']);              
                       ?>
-                       <div class="col-xs-12 col-md-8 border">                     
+                       <div class="col-xs-12 col-md-8 border p-2 mb-2">                     
                        <span class="title_style text-default">PRODUIT : </span><span> <?php echo str_repeat('&nbsp;', 1).$produit->libelle.str_repeat('&nbsp;', 2)?></span></span>
                        <span class="title_style text-default">QUANTITÉ : </span><span> <?php echo str_repeat('&nbsp;', 1).$ligne_produit['quantite'].str_repeat('&nbsp;', 2) ?></span></span>
                        <span class="title_style text-default">PRIX : </span><span> <?php echo str_repeat('&nbsp;', 1).$ligne_produit['prix_ligne']?>€</span></span>

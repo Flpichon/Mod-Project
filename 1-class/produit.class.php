@@ -41,11 +41,11 @@ class produit extends projet {
           <form action="module.php?mod=produit&action=ajout" method="POST" enctype="multipart/form-data">
               <div class="card rounded-0">
                 <div class="card-header p-0 border-bottom-0">
-                  <div class="unique-color text-white text-center py-2">
+                  <div class="bg-brey text-white text-center py-2">
                     <p class="m-0">Saisissez le produit</p>
                   </div>
                 </div>
-                <div class="card-body  mdb-color p-3">
+                <div class="card-body  bg-all p-3">
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
@@ -124,7 +124,7 @@ class produit extends projet {
             $cat = categorie::GetCategorieById($produit['id_categorie']);
             ?>
             <div produit="<?php echo $produit['libelle'] ?>"class="col-md-4 col-12 mt-2 mb-2 produitDisplayed">
-                <div class="card mdb-color white-text">
+                <div class="card bg-all white-text">
                     <img class="card-img-top rounded mx-auto d-block bord mt-2" src="<?php echo URL_HOME.'img/images_produits/'.$produit['image'] ?>"  alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title"><a><?php echo $produit['libelle'] ?></a></h4>
@@ -164,11 +164,11 @@ class produit extends projet {
           <form action="module.php?mod=produit&action=modif&id=<?php echo $produit->id ?>" method="POST" enctype="multipart/form-data">
               <div class="card rounded-0">
                 <div class="card-header p-0 border-bottom-0">
-                  <div class="unique-color text-white text-center py-2">
+                  <div class="bg-brey text-white text-center py-2">
                     <p class="m-0">Modifiez le produit</p>
                   </div>
                 </div>
-                <div class="card-body  mdb-color p-3">
+                <div class="card-body  bg-all p-3">
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">

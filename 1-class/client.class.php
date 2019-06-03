@@ -39,7 +39,7 @@ class client extends projet {
           $cli->Load();
           $nbr = $cli->CountCommande();
         ?>
-            <li class="col-12 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
+            <li class="col-12 list-group-item font-weight-bold mb-2 bg-all white-text align-middle p-2">
             <div class="md-v-line"></div><i class="fas fa-user mr-3 animated fadeInLeft"></i>
             <span><?php echo $key+1 ?>:</span> 
             <span class="text_style client-info" client="<?php echo $client['email'] ?>" cmd="<?php echo $nbr ?>"><span class="title_style text-default">NOM :</span><?php echo str_repeat('&nbsp;', 1).$client['nom'].str_repeat('&nbsp;', 2) ?></span>
@@ -76,11 +76,11 @@ class client extends projet {
           <form action="module.php?mod=client&action=ajout" method="POST">
               <div class="card rounded-0">
                 <div class="card-header p-0 border-bottom-0">
-                  <div class="unique-color text-white text-center py-2">
+                  <div class="bg-brey text-white text-center py-2">
                     <p class="m-0">Saisissez les informations du client</p>
                   </div>
                 </div>
-                <div class="card-body  mdb-color p-3">
+                <div class="card-body  bg-all p-3">
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
@@ -129,11 +129,11 @@ class client extends projet {
           <form action="module.php?mod=client&action=modif&id=<?php echo $client->id ?>" method="POST">
               <div class="card rounded-0">
                 <div class="card-header p-0 border-bottom-0">
-                  <div class="unique-color text-white text-center py-2">
+                  <div class="bg-brey text-white text-center py-2">
                     <p class="m-0">Modifer les informations du client</p>
                   </div>
                 </div>
-                <div class="card-body  mdb-color p-3">
+                <div class="card-body  bg-all p-3">
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">

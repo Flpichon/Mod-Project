@@ -13,7 +13,7 @@ if(isset($_GET["action"]) && $_GET["action"] == "connexion")
 <html lang="fr">
 <?php Head("connexion"); ?>
 <?php if(isset($fail)) Fail();  ?>
-<body class="unique-color-dark">
+<body class="bg-body">
 <section class="container">
   <div class="container mt-5">
     <div class="row justify-content-center">
@@ -21,12 +21,12 @@ if(isset($_GET["action"]) && $_GET["action"] == "connexion")
       <form action="?action=connexion" method="POST">
           <div class="card rounded-0">
             <div class="card-header p-0 border-bottom-0">
-              <div class="unique-color text-white text-center py-2">
+              <div class="bg-brey text-white text-center py-2">
                 <h3><i class="fa fa-envelope animated fadeInLeft"></i> connexion </h3>
                 <p class="m-0">entrez vos informations</p>
               </div>
             </div>
-            <div class="card-body  mdb-color p-3">
+            <div class="card-body  bg-all p-3">
               <div class="form-group">
                 <div class="input-group mb-2">
                   <div class="input-group-prepend">
@@ -54,6 +54,7 @@ if(isset($_GET["action"]) && $_GET["action"] == "connexion")
     </div>
   </div>
   </section>
+  <?php Footer(); ?>
   <?php Js(); ?>
   </body>
 </html>

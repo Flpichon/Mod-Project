@@ -78,13 +78,13 @@
 <!doctype html>
     <html lang="fr">
     <?php Head("formulaire module"); ?>
-        <body class="unique-color-dark">
+        <body class="bg-body">
             <div class="container-fluid">
             <?php modHeader( $_GET['mod']) ?>
             <?php AddButton( $_GET['mod']) ?> 
             <?php  $_GET["mod"]::$display(); ?>
             <?php Footer(); ?>
-            <?php Js(); ?>
             </div>
+            <?php Js(); ?>
         </body>
     </html>

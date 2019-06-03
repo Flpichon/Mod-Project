@@ -27,7 +27,7 @@ class categorie extends projet {
           $nbr = $c->CountProduit();
         ?>
           
-            <li class="col-xs-12 col-md-6 border-background list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
+            <li class="col-xs-12 col-md-6 border-background list-group-item font-weight-bold mb-2 bg-all white-text align-middle p-2">
             <div class="md-v-line"></div><i class="fas fa-box mr-3 animated fadeInLeft"></i>
             <span><?php echo $key+1 ?></span> 
             <span class="categorie-info" id="categorie-info" prd="<?php echo $nbr ?>" cat="<?php echo $categorie['libelle'] ?>">:<?php echo str_repeat('&nbsp;', 2).$categorie['libelle'] ?></span>
@@ -47,7 +47,7 @@ class categorie extends projet {
         ?>
         </ul>
         </div>
-          <div class="col-xs-12 col-md-6">
+          <div class="col-xs-12 col-md-6 ">
           <canvas id="pieChartCat"></canvas>
           </div>
         </div>
@@ -70,11 +70,11 @@ class categorie extends projet {
           <form action="module.php?mod=categorie&action=ajout" method="POST">
               <div class="card rounded-0">
                 <div class="card-header p-0 border-bottom-0">
-                  <div class="unique-color text-white text-center py-2">
+                  <div class="bg-brey text-white text-center py-2">
                     <p class="m-0">Saisissez le libellé de la catégorie</p>
                   </div>
                 </div>
-                <div class="card-body  mdb-color p-3">
+                <div class="card-body  bg-all p-3">
                   <div class="form-group">
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
@@ -109,11 +109,11 @@ class categorie extends projet {
         <form action="module.php?mod=categorie&action=modif&id=<?php echo $categorie->id ?>" method="POST">
             <div class="card rounded-0">
               <div class="card-header p-0 border-bottom-0">
-                <div class="unique-color text-white text-center py-2">
+                <div class="bg-brey text-white text-center py-2">
                   <p class="m-0">Modifer les informations de la categorie</p>
                 </div>
               </div>
-              <div class="card-body  mdb-color p-3">
+              <div class="card-body  bg-all p-3">
                 <div class="form-group">
                   <div class="input-group mb-2">
                     <div class="input-group-prepend">
