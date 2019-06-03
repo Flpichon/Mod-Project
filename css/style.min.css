@@ -58,6 +58,9 @@ a:hover{
 .bottom .copyright p, .bottom .copyright a:hover{
     color: #ffffff;
 }
+.border-background{
+    border:solid 2px #1c2331;
+}
 
 @media (max-width: 768px) { 
 .center-md-text{

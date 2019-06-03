@@ -25,7 +25,7 @@ class utilisateur extends projet {
     public function CountCommande() {
       $c = new commande;
       $bind = array("id_user" => $this->id);
-      $req = "select count(*) as nbr from commande where id_utilisateur = :id_user";
+      $req = "select count(*) as nbr from commande where id_utilisateur = :id_user and suppr = 0";
       $res = $c->sql($req,"nbr", $bind);
       return reset($res[0]);
     }
@@ -45,8 +45,8 @@ class utilisateur extends projet {
           $u->Load();
           $nbr = $u->CountCommande();
         ?>
-            <li class="col-xs-12 col-md-12 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
-            <div class="md-v-line"></div><i class="fas fa-user mr-5 animated fadeInLeft"></i>
+            <li class="col-12 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
+            <div class="md-v-line"></div><i class="fas fa-user mr-3 animated fadeInLeft"></i>
             <span><?php echo $key+1 ." : " ?></span> 
             <span class="user-info text_style" user="<?php echo $user['login'] ?>" cmd="<?php echo  $nbr ?>" ><span class="title_style text-default">NOM :</span><?php echo str_repeat('&nbsp;', 1).$user['nom'].str_repeat('&nbsp;', 2) ?></span>
             <span class="text_style"><span class="title_style text-default">PRENOM :</span><?php echo str_repeat('&nbsp;', 1).$user['prenom'].str_repeat('&nbsp;', 2) ?></span>
