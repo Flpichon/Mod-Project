@@ -7,9 +7,7 @@
     max-width:90px;
     height:90px;
 }
-.bord {
-    
-}
+
 
 .title_style{
     font-weight: bold;
@@ -19,6 +17,15 @@
 .text_style{
     font-weight: normal;
     font-size: 16px;
+}
+
+.title_num_cmd{
+    font-weight: bold;
+    font-size: 25px;
+}
+.text_num_cmd{
+    font-weight: bold;
+    font-size: 25px;
 }
 
 a:hover{
@@ -51,3 +58,10 @@ a:hover{
 .bottom .copyright p, .bottom .copyright a:hover{
     color: #ffffff;
 }
+
+@media (max-width: 768px) { 
+.center-md-text{
+    text-align: center;
+}
+
+ }

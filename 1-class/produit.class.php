@@ -121,7 +121,7 @@ class produit extends projet {
             ?>
             <div class="col-md-4 col-12 mt-2 mb-2">
                 <div class="card mdb-color white-text">
-                    <img class="card-img-top rounded mx-auto d-block bord" src="<?php echo URL_HOME.'img/images_produits/'.$produit['image'] ?>"  alt="Card image cap">
+                    <img class="card-img-top rounded mx-auto d-block bord mt-2" src="<?php echo URL_HOME.'img/images_produits/'.$produit['image'] ?>"  alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title"><a><?php echo $produit['libelle'] ?></a></h4>
                         <span class="badge badge-primary badge-pill float-right p-2 animated zoomIn">

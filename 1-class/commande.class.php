@@ -114,25 +114,41 @@ class commande extends projet {
           $c->Load();
 
             ?>
-              <li class="col-xs-12 col-md-8 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
-                <span><?php echo str_repeat('&nbsp;', 2).$commande['date'] ?></span>
-                <span><?php echo str_repeat('&nbsp;', 2).$commande['prix'] ?></span>
-                <span><?php echo str_repeat('&nbsp;', 2).$commande['statut']?></span>
-                <span><?php echo str_repeat('&nbsp;', 2).$u->login?></span>
-                <span><?php echo str_repeat('&nbsp;', 2).$cli->email?></span>
-                <a class="btn btn-primary " data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              <li class="col-xs-12 col-sm-8 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
+               <div class="row center-md-text">
+                 <div class="col-xs-12 col-md-4">
+                 <span class="title_num_cmd text-default">N° Commande : </span><span class="text_num_cmd white-text"><?php echo str_repeat('&nbsp;', 2).$commande['id'] ?></span><br/>
+                 </div>
+                 <div class="col-xs-12 col-md-4">
+                    <span class="title_style text-default">DATE : </span><span><?php echo str_repeat('&nbsp;', 2).$commande['date'] ?></span><br/>
+                    <span class="title_style text-default">PRIX : </span><span><?php echo str_repeat('&nbsp;', 2).$commande['prix'] ?></span><br/>
+                    <span class="title_style text-default">STATUT : </span><span><?php echo str_repeat('&nbsp;', 2).$commande['statut']?></span><br/>
+                    <span class="title_style text-default">LOGIN : </span><span><?php echo str_repeat('&nbsp;', 2).$u->login?></span><br/>
+                    <span class="title_style text-default">EMAIL : </span> <span><?php echo str_repeat('&nbsp;', 2).$cli->email?></span>
+                 </div>
+                 <div class="col-xs-12 col-md-4">
+                <a class="btn btn-primary float-md-right" data-toggle="collapse" href="#collapseExample<?php echo $key+1 ?>" aria-expanded="false" aria-controls="collapseExample<?php echo $key+1 ?>">
                   détails
+                </a><br>
+                <a class="btn btn-danger float-md-right" data-toggle="collapse" href="#collapseExample<?php echo $key+1 ?>" aria-expanded="false" aria-controls="collapseExample<?php echo $key+1 ?>">
+                  Supprimer
                 </a>
-                <div class="collapse" id="collapseExample">
+                 </div>
+               </div> 
+
+
+                <div class="collapse center-md-text" id="collapseExample<?php echo $key+1 ?>">
                 <div class="mt-3">
+                  <hr class="white">
+                <span class="title_style text-default">détails commande N° <?php echo str_repeat('&nbsp;', 1).$commande['id'] ?></span>
                     <?php $details = $c->GetLignesProduit();
                     foreach ($details as $key => $ligne_produit) {
                       $produit = produit::GetProduitById($ligne_produit['id_produit']);              
                       ?>
-                       <div class="col-xs-12 col-md-8">
-                      <span>produit : <?php echo str_repeat('&nbsp;', 2).$produit->libelle.str_repeat('&nbsp;', 2)?></span>
-                      <span>quantité : <?php echo str_repeat('&nbsp;', 2).$ligne_produit['quantite'].str_repeat('&nbsp;', 2) ?></span>
-                      <span>prix : <?php echo str_repeat('&nbsp;', 2).$ligne_produit['prix_ligne']?>€</span>
+                       <div class="col-xs-12 col-md-8">                     
+                       <span class="title_style text-default">PRODUIT : </span><span> <?php echo str_repeat('&nbsp;', 1).$produit->libelle.str_repeat('&nbsp;', 2)?></span></span>
+                       <span class="title_style text-default">QUANTITÉ : </span><span> <?php echo str_repeat('&nbsp;', 1).$ligne_produit['quantite'].str_repeat('&nbsp;', 2) ?></span></span>
+                       <span class="title_style text-default">PRIX : </span><span> <?php echo str_repeat('&nbsp;', 1).$ligne_produit['prix_ligne']?>€</span></span>
                     </div>
                       <?php
                     }

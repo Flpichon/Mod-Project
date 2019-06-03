@@ -58,7 +58,7 @@ function modHeader($mod) {
     <div class="row">
       <div class="col-12  mb-5">
         <!--Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark unique-color animated fadeInDown">
+        <nav class=" mx-2 navbar navbar-expand-lg navbar-dark unique-color animated fadeInDown fixed-top">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
             aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -121,7 +121,7 @@ function AddButton($mod) {
       break;
   }
   ?>
-    <div class="col-lg-3 col-12 mb-1 text-right">
+    <div class="col-lg-3 col-12 mb-1 mt-5 text-right">
     <a type="button" href="form.php?mod=<?php echo $mod ?>&action=ajout" class="btn btn-mdb-color"><?php echo $toAdd ?></a>
   </div>
   <?php
