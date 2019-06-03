@@ -9,10 +9,11 @@ if (isset($_GET["mod"]) && isset($_GET['action'])) {
   }
   if ($_GET['action'] === 'ajout' || $_GET['action'] === 'modif') {
     $utilisateur->LoadForm();
+    $utilisateur->mdp = md5($utilisateur->mdp);
   }
   $method = ($_GET['action'] === 'ajout') ? 'Add' : ($_GET['action'] === 'suppr' ? 'Delete' : 'Update');
   $utilisateur->$method();
-  header("Location: index.php");
+  //header("Location: index.php");
 }
 ?>
 <head>

@@ -22,6 +22,14 @@ class utilisateur extends projet {
          $this->suppr = 0;
     }
 
+    public function CountCommande() {
+      $c = new commande;
+      $bind = array("id_user" => $this->id);
+      $req = "select count(*) as nbr from commande where id_utilisateur = :id_user";
+      $res = $c->sql($req,"nbr", $bind);
+      return reset($res[0]);
+    }
+
     public static function DisplayUsers() {
         $u = new utilisateur;
         $req = "Select * from utilisateur where suppr = 0";
@@ -33,11 +41,15 @@ class utilisateur extends projet {
           <ul class="row list-group list-group-horizontal d-flex justify-content-around m-1">
         <?php
         foreach($liste as $key => $user) {
+          $u = new utilisateur;
+          $u->id = $user['id'];
+          $u->Load();
+          $nbr = $u->CountCommande();
         ?>
             <li class="col-xs-12 col-md-12 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
             <div class="md-v-line"></div><i class="fas fa-user mr-5 animated fadeInLeft"></i>
             <span><?php echo $key+1 ?></span> 
-            <span><span class="title_style">nom :</span><?php echo str_repeat('&nbsp;', 2).$user['nom'] ?></span>
+            <span cmd="<?php echo  $nbr ?>" ><span class="title_style">nom :</span><?php echo str_repeat('&nbsp;', 2).$user['nom'] ?></span>
             <span><span class="title_style">prenom :</span><?php echo str_repeat('&nbsp;', 2).$user['prenom'] ?></span>
             <span><span class="title_style">login :</span><?php echo str_repeat('&nbsp;', 2).$user['login']?></span>
             <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn">
