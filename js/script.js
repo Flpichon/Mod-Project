@@ -4,6 +4,33 @@ $(document).ready (function(){
             $(this).hide();
         });
     }, 1000);
+    $('.card-title').each(function(i){
+      let lib = $(this).text();
+      $('#filter').append(`<option value="${lib}">${lib}</option>`);
+    })
+    $('#filter').select2({
+      width:'100%'
+    });
+    $('#filter').on('change', function(e) {
+      $('.produitDisplayed').hide();
+      if(!$('#filter option:selected').text()) {
+        $('.produitDisplayed').show();
+      }
+      e.preventDefault();
+      let product = $('#filter option:selected').text();
+      let options = $('#filter option:selected');
+      options.map((index,value) => {
+        $('.produitDisplayed').each(function(i){
+          if ($(this).attr('produit') === value.text) {
+            $(this).show();
+          }
+        })
+      })
+    })
+    $('#clearSelect').on('click',function(e){
+      e.preventDefault();
+      $('.produitDisplayed').show();
+    })
 });
 var nbr = [];
 var lib = [];
@@ -60,8 +87,4 @@ if (document.getElementById("pieChartCat")) {
     })
  }
 
- $('#filter').on('input', function(e) {
-     e.preventDefault();
-     console.log('ok');
- })
 

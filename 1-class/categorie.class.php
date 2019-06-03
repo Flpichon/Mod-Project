@@ -57,7 +57,7 @@ class categorie extends projet {
     public function CountProduit() {
       $c = new categorie;
       $bind = array("id_categorie" => $this->id);
-      $req = "select count(*) as nbr from produit where id_categorie = :id_categorie";
+      $req = "select count(*) as nbr from produit where id_categorie = :id_categorie and suppr = 0 ";
       $res = $c->sql($req,"nbr", $bind);
       return reset($res[0]);
     }
