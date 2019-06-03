@@ -33,12 +33,12 @@ function modHeader($mod) {
     
   }
   ?>
-        <div class="row d-flex justify-content-end">
+    <!--    <div class="row d-flex justify-content-end">
       <div class="col-3  mt-2 ">
         <img style="width: 200px" src="img/logo_transparent.png"
           class="img-fluid rounded text-center animated fadeInRight" alt="Responsive image">
       </div>
-    </div>
+    </div> -->
     <div class="row">
       <div class="col-12  mb-5">
         <!--Navbar -->
