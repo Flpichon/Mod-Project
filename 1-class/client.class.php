@@ -19,7 +19,7 @@ class client extends projet {
     public function CountCommande() {
       $c = new commande;
       $bind = array("id_client" => $this->id);
-      $req = "select count(*) as nbr from commande where id_utilisateur = :id_client and suppr = 0";
+      $req = "select count(*) as nbr from commande where id_client = :id_client and suppr = 0";
       $res = $c->sql($req,"nbr", $bind);
       return reset($res[0]);
     }
