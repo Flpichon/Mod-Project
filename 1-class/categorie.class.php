@@ -32,7 +32,7 @@ class categorie extends projet {
             <span><?php echo $key+1 ?></span> 
             <span class="categorie-info" id="categorie-info" prd="<?php echo $nbr ?>" cat="<?php echo $categorie['libelle'] ?>">:<?php echo str_repeat('&nbsp;', 2).$categorie['libelle'] ?></span>
             <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn">
-                <a href="module.php?mod=categorie&action=suppr&id=<?php echo $categorie['id']?>">
+                <a href="module.php?mod=categorie&action=suppr&id=<?php echo $categorie['id']?>" onclick="return(confirm('Voulez vous vraiment supprimer cette catégorie ?'))">
                 <i class="fas fa-times fa-lg white-text"></i>
                 </a>
             </span>

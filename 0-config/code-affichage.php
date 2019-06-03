@@ -86,7 +86,6 @@ function modHeader($mod) {
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-default"
                   aria-labelledby="navbarDropdownMenuLink-333">
-                  <a class="dropdown-item" href="#">Compte</a>
                   <a class="dropdown-item" href="?action=Deconnexion">Déconnexion</a>
                 </div>
               </li>

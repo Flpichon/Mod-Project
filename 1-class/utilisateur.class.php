@@ -52,7 +52,7 @@ class utilisateur extends projet {
             <span class="text_style"><span class="title_style text-default">PRENOM :</span><?php echo str_repeat('&nbsp;', 1).$user['prenom'].str_repeat('&nbsp;', 2) ?></span>
             <span class="text_style"><span class="title_style text-default">LOGIN :</span><?php echo str_repeat('&nbsp;', 1).$user['login'].str_repeat('&nbsp;', 2) ?></span>
             <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn">
-                <a href="index.php?mod=utilisateur&action=suppr&id=<?php echo $user['id']?>">
+                <a href="index.php?mod=utilisateur&action=suppr&id=<?php echo $user['id']?>" onclick="return(confirm('Voulez vous vraiment supprimer cet utilisateur ?'))">
                 <i class="fas fa-times fa-lg white-text"></i>
                 </a>
             </span>

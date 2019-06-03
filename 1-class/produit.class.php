@@ -133,7 +133,7 @@ class produit extends projet {
                         <p class="card-text white-text"><?php echo $produit['description'] ?></p>
                         <p class="card-text white-text"><?php echo $produit['prix_unitaire'] ?> €</p>
                         <span class="badge badge-danger badge-pill mr-2 float-left p-2 animated zoomIn">
-                            <a href="module.php?mod=produit&action=suppr&id=<?php echo $produit['id']?>">
+                            <a href="module.php?mod=produit&action=suppr&id=<?php echo $produit['id']?>" onclick="return(confirm('Voulez vous vraiment supprimer ce produit ?'))">
                             <i class="fas fa-times fa-lg white-text"></i>
                             </a>
                         </span>

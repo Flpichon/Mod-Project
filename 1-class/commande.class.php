@@ -127,10 +127,10 @@ class commande extends projet {
                     <span class="title_style text-default">EMAIL : </span> <span><?php echo str_repeat('&nbsp;', 2).$cli->email?></span>
                  </div>
                  <div class="col-xs-12 col-md-4">
-                <a class="btn btn-primary float-md-right" data-toggle="collapse" href="#collapseExample<?php echo $key+1 ?>" aria-expanded="false" aria-controls="collapseExample<?php echo $key+1 ?>">
+                <a class="btn btn-primary float-md-right btn-rounded" data-toggle="collapse" href="#collapseExample<?php echo $key+1 ?>" aria-expanded="false" aria-controls="collapseExample<?php echo $key+1 ?>">
                   détails
                 </a><br>
-                <a class="btn btn-danger float-md-right" data-toggle="collapse" href="#collapseExample<?php echo $key+1 ?>" aria-expanded="false" aria-controls="collapseExample<?php echo $key+1 ?>">
+                <a class="btn btn-danger float-md-right btn-rounded" onclick="return(confirm('Voulez vous vraiment supprimer cette commande ?'))" href="module.php?mod=commande&action=suppr&id_commande=<?php echo $commande['id']?>" >
                   Supprimer
                 </a>
                  </div>

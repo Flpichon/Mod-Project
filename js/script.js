@@ -9,7 +9,8 @@ $(document).ready (function(){
       $('#filter').append(`<option value="${lib}">${lib}</option>`);
     })
     $('#filter').select2({
-      width:'100%'
+      width:'100%',
+      placeholder:'filtrer les produits'
     });
     $('#filter').on('change', function(e) {
       $('.produitDisplayed').hide();

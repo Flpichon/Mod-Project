@@ -35,7 +35,7 @@ class client extends projet {
             <span class="text_style"><span class="title_style text-default">PRENOM :</span><?php echo str_repeat('&nbsp;', 1).$client['prenom'].str_repeat('&nbsp;', 2) ?></span><br>
             <span class="text_style ml-5"><span class="title_style text-default">EMAIL :</span><?php echo str_repeat('&nbsp;', 1).$client['email'].str_repeat('&nbsp;', 2) ?></span>
             <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn align-middle"">
-                <a href="module.php?mod=client&action=suppr&id=<?php echo $client['id']?>">
+                <a href="module.php?mod=client&action=suppr&id=<?php echo $client['id']?>" onclick="return(confirm('Voulez vous vraiment supprimer ce client ?'))">
                 <i class="fas fa-times fa-lg white-text"></i>
                 </a>
             </span>
