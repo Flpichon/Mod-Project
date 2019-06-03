@@ -23,7 +23,7 @@ if (isset($_GET["mod"]) && isset($_GET['action'])) {
 </head>
 <?php Head("connexion"); ?>
 <body class="unique-color-dark">
-  <div class="container">
+  <div class="container-fluid">
   <?php modHeader('index'); ?>
     <div class="row">
       <div class="col-lg-3 col-12 mb-1 text-right">

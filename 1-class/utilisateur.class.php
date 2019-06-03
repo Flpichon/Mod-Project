@@ -34,7 +34,7 @@ class utilisateur extends projet {
         ?>
             <li class="col-xs-12 col-md-8 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
             <div class="md-v-line"></div><i class="fas fa-user mr-5 animated fadeInLeft"></i>
-            <span><?php echo $key+1 ?></span> 
+            <span class="info-user"><?php echo $key+1 ?></span> 
             <span><?php echo str_repeat('&nbsp;', 2).$user['nom'] ?></span>
             <span><?php echo str_repeat('&nbsp;', 2).$user['prenom'] ?></span>
             <span><?php echo str_repeat('&nbsp;', 2).$user['login']?></span>
@@ -53,6 +53,7 @@ class utilisateur extends projet {
         }
         ?>
         </ul>
+        <canvas id="pieChart"></canvas>
         <?php
     }
 
