@@ -72,7 +72,7 @@
     <html lang="fr">
     <?php Head("formulaire module"); ?>
         <body class="unique-color-dark">
-            <div class="container">
+            <div class="container-fluid">
             <?php modHeader( $_GET['mod']) ?>
             <?php AddButton( $_GET['mod']) ?> 
             <?php  $_GET["mod"]::$display(); ?>
