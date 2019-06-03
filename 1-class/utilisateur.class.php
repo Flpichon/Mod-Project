@@ -49,7 +49,7 @@ class utilisateur extends projet {
             <li class="col-xs-12 col-md-12 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
             <div class="md-v-line"></div><i class="fas fa-user mr-5 animated fadeInLeft"></i>
             <span><?php echo $key+1 ?></span> 
-            <span cmd="<?php echo  $nbr ?>" ><span class="title_style">nom :</span><?php echo str_repeat('&nbsp;', 2).$user['nom'] ?></span>
+            <span class="user-info" user="<?php echo $user['login'] ?>" cmd="<?php echo  $nbr ?>" ><span class="title_style">nom :</span><?php echo str_repeat('&nbsp;', 2).$user['nom'] ?></span>
             <span><span class="title_style">prenom :</span><?php echo str_repeat('&nbsp;', 2).$user['prenom'] ?></span>
             <span><span class="title_style">login :</span><?php echo str_repeat('&nbsp;', 2).$user['login']?></span>
             <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn">
