@@ -96,6 +96,7 @@ class produit extends projet {
                     </div>
                   </div>
                   <div class="text-center">
+                    <input type="reset" value="Annuler" class="btn btn-info btn-block rounded-0 py-2">
                     <input type="submit" value="Ajouter" class="btn btn-info btn-block rounded-0 py-2">
                   </div>
                 </div>
@@ -217,7 +218,8 @@ class produit extends projet {
                     </div>
                   </div>
                   <div class="text-center">
-                    <input type="submit" value="Ajouter" class="btn btn-info btn-block rounded-0 py-2">
+                    <input type="reset" value="Annuler" class="btn btn-info btn-block rounded-0 py-2">
+                    <input type="submit" value="Modifier" class="btn btn-info btn-block rounded-0 py-2">
                   </div>
                 </div>
     
