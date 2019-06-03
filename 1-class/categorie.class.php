@@ -16,15 +16,21 @@ class categorie extends projet {
         $champs = array("id","libelle");
         $liste = $c->StructList($req,$champs);
         ?>
+        <div class="row">
+        <div class="col-xs-12 col-md-6">
         <ul class="row list-group list-group-horizontal d-flex justify-content-around m-1">
         <?php
         foreach($liste as $key => $categorie) {
+          $c = new categorie;
+          $c->id = $categorie['id'];
+          $c->Load();
+          $nbr = $c->CountProduit();
         ?>
           
             <li class="col-xs-12 col-md-5 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
             <div class="md-v-line"></div><i class="fas fa-box mr-5 animated fadeInLeft"></i>
             <span><?php echo $key+1 ?></span> 
-            <span><?php echo str_repeat('&nbsp;', 2).$categorie['libelle'] ?></span>
+            <span class="categorie-info" id="categorie-info" prd="<?php echo $nbr ?>" cat="<?php echo $categorie['libelle'] ?>"><?php echo str_repeat('&nbsp;', 2).$categorie['libelle'] ?></span>
             <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn">
                 <a href="module.php?mod=categorie&action=suppr&id=<?php echo $categorie['id']?>">
                 <i class="fas fa-times fa-lg white-text"></i>
@@ -40,7 +46,20 @@ class categorie extends projet {
         }
         ?>
         </ul>
+        </div>
+          <div class="col-xs-12 col-md-6">
+          <canvas id="pieChartCat"></canvas>
+          </div>
+        </div>
         <?php
+    }
+
+    public function CountProduit() {
+      $c = new categorie;
+      $bind = array("id_categorie" => $this->id);
+      $req = "select count(*) as nbr from produit where id_categorie = :id_categorie";
+      $res = $c->sql($req,"nbr", $bind);
+      return reset($res[0]);
     }
 
     public static function Ajout() {

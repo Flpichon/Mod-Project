@@ -41,7 +41,6 @@ class utilisateur extends projet {
           <ul class="row list-group list-group-horizontal d-flex justify-content-around m-1">
         <?php
         foreach($liste as $key => $user) {
-          $u = new utilisateur;
           $u->id = $user['id'];
           $u->Load();
           $nbr = $u->CountCommande();
