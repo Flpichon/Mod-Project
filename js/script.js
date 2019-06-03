@@ -60,3 +60,8 @@ if (document.getElementById("pieChartCat")) {
     })
  }
 
+ $('#filter').on('input', function(e) {
+     e.preventDefault();
+     console.log('ok');
+ })
+

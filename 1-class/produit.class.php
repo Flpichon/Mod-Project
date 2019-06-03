@@ -99,7 +99,6 @@ class produit extends projet {
                     <input type="submit" value="Ajouter" class="btn btn-info btn-block rounded-0 py-2">
                   </div>
                 </div>
-    
               </div>
             </form>
           </div>
@@ -114,6 +113,9 @@ class produit extends projet {
         $champs = array("id","libelle","description","prix_unitaire","image","id_categorie");
         $liste = $p->StructList($req,$champs);
         ?>
+        <div class="text-center">
+            <input id="filter" type="text" placeholder="catégorie" class="btn btn-info btn-block rounded-0 py-2">
+        </div>
         <div class="row">
         <?php
         foreach ($liste as $produit) {
