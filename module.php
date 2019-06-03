@@ -77,6 +77,7 @@
             <?php modHeader( $_GET['mod']) ?>
             <?php AddButton( $_GET['mod']) ?> 
             <?php  $_GET["mod"]::$display(); ?>
+            <?php Footer(); ?>
             <?php Js(); ?>
             </div>
         </body>

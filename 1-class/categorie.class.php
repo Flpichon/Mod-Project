@@ -27,10 +27,10 @@ class categorie extends projet {
           $nbr = $c->CountProduit();
         ?>
           
-            <li class="col-xs-12 col-md-6 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
-            <div class="md-v-line"></div><i class="fas fa-box mr-5 animated fadeInLeft"></i>
+            <li class="col-xs-12 col-md-6 border-background list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
+            <div class="md-v-line"></div><i class="fas fa-box mr-3 animated fadeInLeft"></i>
             <span><?php echo $key+1 ?></span> 
-            <span class="categorie-info" id="categorie-info" prd="<?php echo $nbr ?>" cat="<?php echo $categorie['libelle'] ?>"><?php echo str_repeat('&nbsp;', 2).$categorie['libelle'] ?></span>
+            <span class="categorie-info" id="categorie-info" prd="<?php echo $nbr ?>" cat="<?php echo $categorie['libelle'] ?>">:<?php echo str_repeat('&nbsp;', 2).$categorie['libelle'] ?></span>
             <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn">
                 <a href="module.php?mod=categorie&action=suppr&id=<?php echo $categorie['id']?>">
                 <i class="fas fa-times fa-lg white-text"></i>

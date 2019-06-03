@@ -22,22 +22,24 @@ class client extends projet {
         $champs = array("id","nom","prenom","email");
         $liste = $u->StructList($req,$champs);
         ?>
-        <ul class="row list-group list-group-horizontal d-flex justify-content-around m-1">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <ul class="row list-group list-group-horizontal d-flex justify-content-around m-1">
         <?php
         foreach($liste as $key => $client) {
         ?>
-            <li class="col-xs-12 col-md-8 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
-            <div class="md-v-line"></div><i class="fas fa-user mr-5 animated fadeInLeft"></i>
-            <span><?php echo $key+1 ?></span> 
-            <span><?php echo str_repeat('&nbsp;', 2).$client['nom'] ?></span>
-            <span><?php echo str_repeat('&nbsp;', 2).$client['prenom'] ?></span>
-            <span><?php echo str_repeat('&nbsp;', 2).$client['email']?></span>
-            <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn">
+            <li class="col-12 list-group-item font-weight-bold mb-2 mdb-color white-text align-middle p-2">
+            <div class="md-v-line"></div><i class="fas fa-user mr-3 animated fadeInLeft"></i>
+            <span><?php echo $key+1 ?>:</span> 
+            <span class="text_style"><span class="title_style text-default">NOM :</span><?php echo str_repeat('&nbsp;', 1).$client['nom'].str_repeat('&nbsp;', 2) ?></span>
+            <span class="text_style"><span class="title_style text-default">PRENOM :</span><?php echo str_repeat('&nbsp;', 1).$client['prenom'].str_repeat('&nbsp;', 2) ?></span><br>
+            <span class="text_style ml-5"><span class="title_style text-default">EMAIL :</span><?php echo str_repeat('&nbsp;', 1).$client['email'].str_repeat('&nbsp;', 2) ?></span>
+            <span class="badge badge-danger badge-pill ml-2 float-right p-2 animated zoomIn align-middle"">
                 <a href="module.php?mod=client&action=suppr&id=<?php echo $client['id']?>">
                 <i class="fas fa-times fa-lg white-text"></i>
                 </a>
             </span>
-            <span class="badge badge-success badge-pill float-right p-2 animated zoomIn">
+            <span class="badge badge-success badge-pill float-right p-2 animated zoomIn align-middle"">
                 <a href="form.php?mod=client&action=modif&id=<?php echo $client['id']?>">
                 <i class="fas fa-wrench fa-lg white-text"></i>
                 </a>
@@ -47,6 +49,11 @@ class client extends projet {
         }
         ?>
         </ul>
+          </div>
+          <div class="col-xs-12 col-md-6">
+          <canvas id="pieChart"></canvas>
+          </div>
+        </div>
         <?php
     }
 
