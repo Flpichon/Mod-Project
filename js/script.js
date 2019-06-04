@@ -44,15 +44,24 @@ $(document).ready (function(){
             showMe++;
         }
         else if (e.keyCode == 108 && showMe == 3) {
+            $('body').addClass('jackytunning');
             $( "body" ).prepend( "<div id='e1'></div>" );
             $( "body" ).prepend( "<div id='e2'></div>" );
             $( "body" ).prepend( "<div id='e3'></div>" );
+            $( "body" ).prepend("<div id='explo'></div>");
+            $( "body" ).prepend("<div id='ho'></div>");
+            var ho = document.getElementById('ho');
+            var explo = document.getElementById('explo');
             var elem = document.getElementById("e1");
             var elem2 = document.getElementById("e2");
             var elem3 = document.getElementById("e3");
             elem2.style.left = '150px';
             elem3.style.left = '200px';
             let w = $('body')[0].clientWidth;
+            ho.style.top = '250px';
+            ho.style.left = '800px';
+            explo.style.top = '300px';
+            explo.style.left = '300px';
             var posX = 0;
             var id = setInterval(frame, 5);
             function frame() {

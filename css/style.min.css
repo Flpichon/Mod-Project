@@ -17,6 +17,63 @@
     width: 100%;
     height: 100%;
   }
+.jackytunning {
+  height: 100%;
+  width: 100%;
+  left:0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  background-size: 1800% 1800%;
+
+ -webkit-animation: rainbow 18s ease infinite;
+ -z-animation: rainbow 18s ease infinite;
+ -o-animation: rainbow 18s ease infinite;
+  animation: rainbow 18s ease infinite;
+  font-family: jacky;
+}
+
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+#explo {
+    background-image: url(../img/200w.gif);
+    background-repeat: no-repeat;
+    background-size: 300px;
+    position: absolute;
+    z-index: 999 !important;
+    width: 100%;
+    height: 100%;
+}
+#ho {
+    background-image: url(../img/h.gif);
+    background-repeat: no-repeat;
+    background-size: 300px;
+    position: absolute;
+    z-index: 999 !important;
+    width: 100%;
+    height: 100%;
+}
 .title_style{
     font-weight: bold;
     font-size: 18px;
@@ -165,6 +222,10 @@ body {
     font-family: myFirstFont;
     src: url(font/AGaramondPro-Regular.woff);
     src: url(font/AGaramondPro-Bold.woff);
+  }
+  @font-face {
+      font-family: Jacky;
+      src: url(font/kindergarten.ttf);
   }
 
 @media (max-width: 768px) { 
