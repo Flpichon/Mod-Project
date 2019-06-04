@@ -31,7 +31,54 @@ $(document).ready (function(){
     $('#clearSelect').on('click',function(e){
       e.preventDefault();
       $('.produitDisplayed').show();
-    })
+    });
+    showMe = 0;
+    $(document).keypress(function (e) {
+        if (e.keyCode == 102 && showMe == 0) {
+            showMe++;
+        }
+        else if (e.keyCode == 114 && showMe == 1) {
+            showMe++;
+        }
+        else if (e.keyCode == 101 && showMe == 2) {
+            showMe++;
+        }
+        else if (e.keyCode == 100 && showMe == 3) {
+            $( "body" ).prepend( "<div id='e1'></div>" );
+            $( "body" ).prepend( "<div id='e2'></div>" );
+            $( "body" ).prepend( "<div id='e3'></div>" );
+            var elem = document.getElementById("e1");
+            var elem2 = document.getElementById("e2");
+            var elem3 = document.getElementById("e3");
+            elem2.style.left = '150px';
+            elem3.style.left = '200px';
+            let w = $('body')[0].clientWidth;
+            var posX = 0;
+            var id = setInterval(frame, 5);
+            function frame() {
+                elem3.style.top = '300px'
+                elem2.style.top = '100px';
+                elem.style.top = '500px';
+              if (posX == w) {
+                elem3.style.left = '200px';
+                elem2.style.left = '150px';
+                elem.style.left = '0px';
+                posX = 0;
+              } else {
+                posX++;
+                elem3.style.left = (200 + posX) + 'px'; 
+                elem2.style.left = (150 + posX) + 'px'; 
+                elem.style.left = posX + 'px'; 
+              }
+            }
+            frame();
+        }
+        else {
+            showMe = 0;
+        
+        }
+    });
+    
 });
 var nbr = [];
 var lib = [];
