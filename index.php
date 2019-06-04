@@ -27,8 +27,8 @@ if (isset($_GET["mod"]) && isset($_GET['action'])) {
   <div class="container-fluid">
   <?php modHeader('index'); ?>
     <div class="row">
-      <div class="col-lg-3 col-12 mb-1 mt-5 text-right">
-        <a type="button" href="form.php?mod=utilisateur&action=ajout" class="btn  butn">Ajouter un Utilisateur</a>
+      <div class="col-lg-3 col-12 mb-3 mt-5 text-right">
+        <a  href="form.php?mod=utilisateur&action=ajout" class="butn">AJOUTER UN UTILISATEUR</a>
       </div>
     </div>
     <div class="row">

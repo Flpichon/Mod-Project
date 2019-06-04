@@ -116,8 +116,8 @@ function AddButton($mod) {
       break;
   }
   ?>
-    <div class="col-lg-3 col-12 mb-1 mt-5 text-right">
-    <a type="button" href="form.php?mod=<?php echo $mod ?>&action=ajout" class="btn btn bg-all butn"><?php echo $toAdd ?></a>
+    <div class="col-lg-3 col-12 mb-3 mt-5 text-right">
+    <a  href="form.php?mod=<?php echo $mod ?>&action=ajout" class="butn"><?php echo $toAdd ?></a>
   </div>
   <?php
 }

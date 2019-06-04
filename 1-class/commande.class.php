@@ -72,7 +72,7 @@ class commande extends projet {
               </tbody>
             </table>
             </div>
-            <input type="submit" class="btn btn-bg-all" value="Valider"/>
+            <input type="submit" class="butn " value="Valider"/>
           </form>
         </div>
       </div>
