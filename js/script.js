@@ -34,16 +34,16 @@ $(document).ready (function(){
     });
     showMe = 0;
     $(document).keypress(function (e) {
-        if (e.keyCode == 102 && showMe == 0) {
+        if (e.keyCode == 112 && showMe == 0) {
             showMe++;
         }
-        else if (e.keyCode == 114 && showMe == 1) {
+        else if (e.keyCode == 104 && showMe == 1) {
             showMe++;
         }
-        else if (e.keyCode == 101 && showMe == 2) {
+        else if (e.keyCode == 105 && showMe == 2) {
             showMe++;
         }
-        else if (e.keyCode == 100 && showMe == 3) {
+        else if (e.keyCode == 108 && showMe == 3) {
             $( "body" ).prepend( "<div id='e1'></div>" );
             $( "body" ).prepend( "<div id='e2'></div>" );
             $( "body" ).prepend( "<div id='e3'></div>" );
