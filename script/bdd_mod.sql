@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 03 juin 2019 à 22:48
--- Version du serveur :  5.7.21
--- Version de PHP :  5.6.35
+-- Généré le :  mar. 04 juin 2019 à 13:35
+-- Version du serveur :  5.7.19
+-- Version de PHP :  7.0.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,23 +34,18 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `libelle` varchar(50) NOT NULL,
   `suppr` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `categorie`
 --
 
 INSERT INTO `categorie` (`id`, `libelle`, `suppr`) VALUES
-(1, 'oooo', 1),
-(2, 'yololol', 1),
-(3, 'oooonhj, bybghn tv', 1),
-(4, 'yolo', 0),
-(5, 'yololol', 0),
 (6, 'fruits', 0),
 (7, 'légume', 0),
 (8, 'condiments', 0),
-(9, 'riz', 0),
-(10, 'toto', 0);
+(11, 'vetement', 0),
+(12, 'boisson', 0);
 
 -- --------------------------------------------------------
 
@@ -66,16 +61,15 @@ CREATE TABLE IF NOT EXISTS `client` (
   `email` varchar(50) NOT NULL,
   `suppr` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `client`
 --
 
 INSERT INTO `client` (`id`, `nom`, `prenom`, `email`, `suppr`) VALUES
-(1, 'relouou', 'relou', 'relou@gmail.com', 1),
-(2, 'Le Pichon', 'Franck', 'franckiiboss@gmail.com', 0),
-(3, 'le relou', 'ok', 'relou@gmail.com', 0);
+(4, 'Dupont', 'Paul', 'PaulDupont@gmail.com', 0),
+(5, 'Martin', 'Alphonse', 'AlphonseMartin@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -95,18 +89,17 @@ CREATE TABLE IF NOT EXISTS `commande` (
   PRIMARY KEY (`id`),
   KEY `commande_utilisateur_FK` (`id_utilisateur`),
   KEY `commande_client0_FK` (`id_client`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `commande`
 --
 
 INSERT INTO `commande` (`id`, `date`, `statut`, `prix`, `suppr`, `id_utilisateur`, `id_client`) VALUES
-(45, '2019-06-03 00:00:00', 'terminée', 846.82, 1, 2, 2),
-(46, '2019-06-03 18:54:43', 'terminée', 69952, 1, 2, 2),
-(47, '2019-06-03 18:55:26', 'en cours', 0, 1, 2, 2),
-(48, '2019-06-03 20:16:01', 'terminée', 573.78, 0, 2, 2),
-(49, '2019-06-03 20:35:44', 'terminée', 459.34, 0, 2, 2);
+(50, '2019-06-04 08:20:57', 'terminée', 66.1, 0, 2, 4),
+(51, '2019-06-04 08:39:54', 'terminée', 42.9, 0, 2, 4),
+(52, '2019-06-04 08:40:56', 'terminée', 10, 0, 4, 4),
+(53, '2019-06-04 08:42:19', 'terminée', 23, 0, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -125,27 +118,23 @@ CREATE TABLE IF NOT EXISTS `ligne_produit` (
   PRIMARY KEY (`id`),
   KEY `ligne_produit_produit_FK` (`id_produit`),
   KEY `ligne_produit_commande0_FK` (`id_commande`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `ligne_produit`
 --
 
 INSERT INTO `ligne_produit` (`id`, `quantite`, `prix_ligne`, `id_produit`, `id_commande`, `suppr`) VALUES
-(42, 5, 385, 19, 45, 0),
-(43, 4, 454, 20, 45, 0),
-(44, 9, 2.7, 22, 45, 0),
-(45, 8, 5.12, 23, 45, 0),
-(46, 787, 60599, 19, 46, 0),
-(47, 78, 8853, 20, 46, 0),
-(48, 7, 2.1, 22, 46, 0),
-(49, 778, 497.92, 23, 46, 0),
-(50, 5, 567.5, 20, 48, 0),
-(51, 6, 1.8, 22, 48, 0),
-(52, 7, 4.48, 23, 48, 0),
-(53, 4, 454, 20, 49, 0),
-(54, 5, 1.5, 22, 49, 0),
-(55, 6, 3.84, 23, 49, 0);
+(56, 1, 1, 27, 50, 0),
+(57, 2, 3, 28, 50, 0),
+(58, 3, 2.1, 29, 50, 0),
+(59, 4, 60, 30, 50, 0),
+(60, 12, 12, 27, 51, 0),
+(61, 15, 22.5, 28, 51, 0),
+(62, 12, 8.4, 29, 51, 0),
+(63, 10, 10, 27, 52, 0),
+(64, 14, 14, 27, 53, 0),
+(65, 6, 9, 28, 53, 0);
 
 -- --------------------------------------------------------
 
@@ -164,22 +153,19 @@ CREATE TABLE IF NOT EXISTS `produit` (
   `id_categorie` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `produit_categorie_FK` (`id_categorie`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `produit`
 --
 
 INSERT INTO `produit` (`id`, `libelle`, `description`, `prix_unitaire`, `image`, `suppr`, `id_categorie`) VALUES
-(18, 'yolo', 'Dazar\'alor NM', 58, 'duo boss.png', 1, 4),
-(19, 'yolo', 'Dazar\'alor NM', 77, 'duo boss.png', 1, 4),
-(20, 'yololol', 'Dazar\'alor NM', 113.5, 'Image1.png', 1, 4),
-(21, 'oooonhj, bybghn tv', 'Dazar\'alor NM', 1.5, 'firefrosttest.jpg', 1, 4),
-(22, 'tomates', 'Abraham Lincoln', 0.3, 'tomate.png', 0, 6),
-(23, 'carotte', 'De Carentan', 0.64, 'carotte.png', 0, 7),
-(24, 'Groot', 'groot', 20, 'groot_marvel_silo.png', 0, 7),
-(25, 'président', 'nul', 0, 'macron.jpg', 1, 4),
-(26, 'Poire', 'Dr Jules Guyot', 0.34, 'poires.png', 0, 4);
+(27, 'tomate', 'Solanum lycopersicum L.', 1, 'tomate.png', 0, 6),
+(28, 'poire', 'Red Williams', 1.5, 'poires.png', 0, 6),
+(29, 'carotte', 'Daucus carota subsp.', 0.7, 'carotte.png', 0, 7),
+(30, 't-shirt', 't-shirt blanc taille unique', 15, 'tshirt_PNG5435.png', 0, 11),
+(31, 'vin rouge', 'Merlot Tannay', 30, 'rouge.png', 0, 12),
+(32, 'chemise', 'chemise à carreaux', 20, 'chemise.png', 0, 11);
 
 -- --------------------------------------------------------
 
@@ -221,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id_statut` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `utilisateur_statut_FK` (`id_statut`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -229,13 +215,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `email`, `suppr`, `id_statut`) VALUES
 (2, 'Le Pichon', 'Franck', 'franck', '6f31afdd1748f40493ce3d75a0d792f1', 'franckiiboss@gmail.com', 0, 2),
-(3, 'toto', 'oki', 'toto', 'f71dbe52628a3f83a77ab494817525c6', 'franckiiboss@gmail.com', 0, 1),
-(4, 'Le Pichon', 'Frédéric', 'fredo', 'fredo', 'franckiiboss@gmail.com', 1, 1),
-(5, 'toto', 'ooooooooooooo', 'test', 'test', 'test@gmail.test', 1, 1),
-(6, 'ooo', 'oooo', 'ok', 'ooo', 'franckiiboss@gmail.com', 1, 1),
-(7, 'ooo', 'oooo', 'ok', 'ooo', 'franckiiboss@gmail.com', 1, 1),
-(8, 'o', 'llllllll', 'nnnnnn', 'nnnn', 'franckiiboss@gmail.com', 0, 1),
-(9, 'yfugfguytu', 'yttyutu', 'tuyyutu', 'tututut', 'franckiiboss@gmail.com', 1, 1);
+(4, 'Le Pichon', 'Frédéric', 'fredo', '7aec5e35a56630ecc364ad842ffad9de', 'franckiiboss@gmail.com', 0, 1),
+(10, 'admin', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@admin.fr', 0, 2);
 
 --
 -- Contraintes pour les tables déchargées
